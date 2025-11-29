@@ -12,7 +12,6 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="CSMStand(Lite).lvlib" Type="Library" URL="../../CSMStand(Lite)/CSMStand(Lite).lvlib"/>
 		<Item Name="CSMStandApp.vi" Type="VI" URL="../CSMStandApp.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
@@ -92,6 +91,7 @@
 				<Item Name="Unset Busy.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Unset Busy.vi"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
+			<Item Name="CSMStand(Lite).lvlib" Type="Library" URL="../../CSMStand(Lite)/CSMStand(Lite).lvlib"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="CSMStand(Lite).lvlibp" Type="Packed Library">

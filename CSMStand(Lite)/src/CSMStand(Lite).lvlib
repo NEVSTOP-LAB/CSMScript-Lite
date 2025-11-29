@@ -34,31 +34,31 @@
 	<Property Name="Serialized ACL" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!A1%!!!@````]!!".V&lt;H.J:WZF:#"C?82F)'&amp;S=G&amp;Z!!%!!1!!!!A)!!!!#!!!!!!!!!!</Property>
 	<Property Name="Use Data Logging Database" Type="Bool">true</Property>
 	<Item Name="__TEST" Type="Folder">
-		<Item Name="TEST-Draft.vi" Type="VI" URL="../src/_TEST/TEST-Draft.vi"/>
-		<Item Name="TEST-Main.vi" Type="VI" URL="../src/_TEST/TEST-Main.vi"/>
+		<Item Name="TEST-Draft.vi" Type="VI" URL="../_TEST/TEST-Draft.vi"/>
+		<Item Name="TEST-Main.vi" Type="VI" URL="../_TEST/TEST-Main.vi"/>
 	</Item>
 	<Item Name="Engine" Type="Folder">
 		<Item Name="_Support" Type="Folder">
-			<Item Name="anchor map.vi" Type="VI" URL="../src/Engine/_Support/anchor map.vi"/>
-			<Item Name="Internal Operation.vi" Type="VI" URL="../src/Engine/_Support/Internal Operation.vi"/>
-			<Item Name="Working Thread.vi" Type="VI" URL="../src/Engine/_Support/Working Thread.vi"/>
+			<Item Name="anchor map.vi" Type="VI" URL="../Engine/_Support/anchor map.vi"/>
+			<Item Name="Internal Operation.vi" Type="VI" URL="../Engine/_Support/Internal Operation.vi"/>
+			<Item Name="Working Thread.vi" Type="VI" URL="../Engine/_Support/Working Thread.vi"/>
 		</Item>
 		<Item Name="Typedef" Type="Folder">
-			<Item Name="Def-StepComplete Event Data.ctl" Type="VI" URL="../src/Engine/Typedef/Def-StepComplete Event Data.ctl"/>
+			<Item Name="Def-StepComplete Event Data.ctl" Type="VI" URL="../Engine/Typedef/Def-StepComplete Event Data.ctl"/>
 		</Item>
-		<Item Name="Engine(CSM).vi" Type="VI" URL="../src/Engine/Engine(CSM).vi"/>
+		<Item Name="Engine(CSM).vi" Type="VI" URL="../Engine/Engine(CSM).vi"/>
 	</Item>
 	<Item Name="UI" Type="Folder">
 		<Property Name="NI.SortType" Type="Int">3</Property>
 		<Item Name="_Support" Type="Folder">
-			<Item Name="Sequence-DefaultStyle.vi" Type="VI" URL="../src/UI/Support/Sequence-DefaultStyle.vi"/>
-			<Item Name="Sequence-Load.vi" Type="VI" URL="../src/UI/Support/Sequence-Load.vi"/>
-			<Item Name="Sequence-Started.vi" Type="VI" URL="../src/UI/Support/Sequence-Started.vi"/>
-			<Item Name="Sequence-StepComplete.vi" Type="VI" URL="../src/UI/Support/Sequence-StepComplete.vi"/>
-			<Item Name="Sequence-StepFollw.vi" Type="VI" URL="../src/UI/Support/Sequence-StepFollw.vi"/>
-			<Item Name="Sequence-StepStart.vi" Type="VI" URL="../src/UI/Support/Sequence-StepStart.vi"/>
+			<Item Name="Sequence-DefaultStyle.vi" Type="VI" URL="../UI/Support/Sequence-DefaultStyle.vi"/>
+			<Item Name="Sequence-Load.vi" Type="VI" URL="../UI/Support/Sequence-Load.vi"/>
+			<Item Name="Sequence-Started.vi" Type="VI" URL="../UI/Support/Sequence-Started.vi"/>
+			<Item Name="Sequence-StepComplete.vi" Type="VI" URL="../UI/Support/Sequence-StepComplete.vi"/>
+			<Item Name="Sequence-StepFollw.vi" Type="VI" URL="../UI/Support/Sequence-StepFollw.vi"/>
+			<Item Name="Sequence-StepStart.vi" Type="VI" URL="../UI/Support/Sequence-StepStart.vi"/>
 		</Item>
-		<Item Name="VersionDialog(CSM).vi" Type="VI" URL="../src/UI/VersionDialog(CSM).vi"/>
-		<Item Name="ExecutionView(CSM).vi" Type="VI" URL="../src/UI/ExecutionView(CSM).vi"/>
+		<Item Name="VersionDialog(CSM).vi" Type="VI" URL="../UI/VersionDialog(CSM).vi"/>
+		<Item Name="ExecutionView(CSM).vi" Type="VI" URL="../UI/ExecutionView(CSM).vi"/>
 	</Item>
 </Library>
