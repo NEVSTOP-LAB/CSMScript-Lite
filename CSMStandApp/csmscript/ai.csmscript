@@ -1,0 +1,16 @@
+read@ai >> Action: Update Chart@.app -><register>
+read(massdata)@ai >> Action: Update Chart@.app -><register>
+Action: Reset Chart -@.app
+Channels -@ ai
+read(massdata) >> ai/0;100 -@ ai
+read >> ai/0;2 -@ ai
+read >> ai/0;2 -@ ai
+read >> ai/0;2 -@ ai
+read >> ai/0;2 -@ ai
+read(massdata) >> ai/1;100 -@ ai
+read >> ai/1;2 -@ ai
+read >> ai/1;2 -@ ai
+read >> ai/1;2 -@ ai
+read >> ai/2;2 -@ ai
+read@ai >> Action: Update Chart@.app -><unregister>
+read(massdata)@ai >> Action: Update Chart@.app -><unregister>
