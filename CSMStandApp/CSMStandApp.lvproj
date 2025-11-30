@@ -12,13 +12,15 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
+		<Item Name="APP" Type="Folder">
+			<Item Name="CSMStandApp.vi" Type="VI" URL="../CSMStandApp.vi"/>
+		</Item>
 		<Item Name="CodeModules" Type="Folder" URL="../CodeModules">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
 		<Item Name="csmscript" Type="Folder" URL="../csmscript">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="CSMStandApp.vi" Type="VI" URL="../CSMStandApp.vi"/>
 		<Item Name="Launcher.vi" Type="VI" URL="../Launcher.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
