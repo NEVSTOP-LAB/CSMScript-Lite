@@ -1,0 +1,10 @@
+*.aliases
+*.lvlps
+*.vip
+*.tmp
+/*.bak
+*.csm.log
+*.csmlog
+*.lvcsm
+*.$*.bkp
+*.7z
