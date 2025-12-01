@@ -7,7 +7,7 @@ Channels -@ ai
 
 //ai/0
 Action: Wait(ms) >> 1000 -@ chart
-read >> ai/0;2 -@ ai
+read >> ai/0;100 -@ ai
 read >> ai/0;2 -@ ai
 read >> ai/0;2 -@ ai
 read >> ai/0;2 -@ ai
