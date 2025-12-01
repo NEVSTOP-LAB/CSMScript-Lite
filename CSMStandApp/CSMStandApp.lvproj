@@ -101,7 +101,7 @@
 				<Item Name="Unset Busy.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Unset Busy.vi"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
-			<Item Name="CSMStand(Lite).lvlib" Type="Library" URL="../../CSMStand(Lite)/CSMStand(Lite).lvlib"/>
+			<Item Name="CSMStand(Lite).lvlib" Type="Library" URL="../../CSMStand(Lite)/src/CSMStand(Lite).lvlib"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
