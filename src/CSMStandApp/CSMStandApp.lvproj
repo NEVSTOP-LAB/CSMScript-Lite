@@ -103,6 +103,49 @@
 			</Item>
 			<Item Name="CSMStand(Lite).lvlib" Type="Library" URL="../../CSMStand(Lite)/src/CSMStand(Lite).lvlib"/>
 		</Item>
-		<Item Name="Build Specifications" Type="Build"/>
+		<Item Name="Build Specifications" Type="Build">
+			<Item Name="CSMStand_Lite" Type="EXE">
+				<Property Name="App_copyErrors" Type="Bool">true</Property>
+				<Property Name="App_INI_aliasGUID" Type="Str">{B47B9B14-2FBE-4CD9-9FEC-4188C7BC3598}</Property>
+				<Property Name="App_INI_GUID" Type="Str">{DEE669E4-E2D4-42B1-B596-F8F68858BCC3}</Property>
+				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
+				<Property Name="App_serverType" Type="Int">0</Property>
+				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
+				<Property Name="Bld_buildCacheID" Type="Str">{FA41D8C1-E277-42C8-99BB-A273589FD71B}</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">CSMStand_Lite</Property>
+				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
+				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
+				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../build</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
+				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
+				<Property Name="Bld_previewCacheID" Type="Str">{20A469DA-BA7A-4348-AB59-86BA9A74A266}</Property>
+				<Property Name="Bld_version.build" Type="Int">1</Property>
+				<Property Name="Bld_version.major" Type="Int">1</Property>
+				<Property Name="Destination[0].destName" Type="Str">CSMStand_Lite.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">../build/CSMStand_Lite.exe</Property>
+				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
+				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
+				<Property Name="Destination[0].type" Type="Str">App</Property>
+				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
+				<Property Name="Destination[1].path" Type="Path">../build/data</Property>
+				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
+				<Property Name="DestinationCount" Type="Int">2</Property>
+				<Property Name="Source[0].itemID" Type="Str">{A51163BC-0839-463A-8084-383AEB1F536C}</Property>
+				<Property Name="Source[0].type" Type="Str">Container</Property>
+				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Launcher.vi</Property>
+				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[1].type" Type="Str">VI</Property>
+				<Property Name="SourceCount" Type="Int">2</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">CSMStand_Lite</Property>
+				<Property Name="TgtF_internalName" Type="Str">CSMStand_Lite</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright ?2025 </Property>
+				<Property Name="TgtF_productName" Type="Str">CSMStand_Lite</Property>
+				<Property Name="TgtF_targetfileGUID" Type="Str">{D09E55F8-3BB4-4CFA-B5DC-03A2D1CE8583}</Property>
+				<Property Name="TgtF_targetfileName" Type="Str">CSMStand_Lite.exe</Property>
+				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
+			</Item>
+		</Item>
 	</Item>
 </Project>

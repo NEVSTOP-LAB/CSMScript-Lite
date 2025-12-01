@@ -59,6 +59,7 @@ jobs:
           PackageName1: CSM-MassData-Parameter-Support
           PackageName2: CSM-API-String-Arguments-Support
           PackageName3: CSM-INI-Static-Variable-Support
+          PackageName4: NEVSTOP-Programming-Palette
 
       # Runs a set of commands using the runners shell
       - name: BuildDailyVIP
