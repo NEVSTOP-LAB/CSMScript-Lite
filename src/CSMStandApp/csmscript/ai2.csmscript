@@ -1,0 +1,27 @@
+//setup
+read(massdata)@ai >> Action: Update Chart@Chart -><register>
+UI: Front Panel State >> Open -@ Chart
+Action: Reset Chart -@Chart
+
+Channels -@ ai
+
+<main>
+
+//ai/0
+Action: Wait(ms) >> 1000 -@ chart
+read >> ai/0;100 -@ ai
+read >> ai/0;2 -@ ai
+read >> ai/0;2 -@ ai
+read >> ai/0;2 -@ ai
+read(massdata) >> ai/0;100 -@ ai
+
+//ai/1
+Action: Wait(ms) >> 1000 -@ chart
+read >> ai/1;2 -@ ai
+read >> ai/1;2 -@ ai
+read >> ai/1;2 -@ ai
+read >> ai/2;2 -@ ai
+read(massdata) >> ai/1;100 -@ ai
+
+<cleanup>
+read(massdata)@ai >> Action: Update Chart@Chart -><unregister>

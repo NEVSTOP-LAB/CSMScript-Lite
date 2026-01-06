@@ -1,5 +1,7 @@
+<set up>
+
 //准备开始测试
-Reset Internal Status -@FlowCtrl //重置内部状态
+Reset Internal Status -@FlowCtrl || Jump to >> error handler //重置内部状态
 
 //测试过程
 Report TotalTime  -@ServoTest //统计返回总时间
@@ -20,6 +22,10 @@ Report Ready -@ServoTest
 Report CurentStatus >> 正在测试 -@FlowCtrl
 测试过程 -@ServoTest
 修改新数据生成标志 -@FlowCtrl
+
+<error handler>
+
+<clean up>
 关闭硬件 -@ServoTest
 
 // DIO 控制 根据需要看是否保留
