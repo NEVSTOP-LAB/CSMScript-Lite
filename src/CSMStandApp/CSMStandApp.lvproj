@@ -26,6 +26,7 @@
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
 		<Item Name="Launcher.vi" Type="VI" URL="../Launcher.vi"/>
+		<Item Name="csm-app.ini" Type="Document" URL="../csm-app.ini"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="API String Arguments Support.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/Communicable State Machine(CSM)/addons/API-String-Arugments-Support/API String Arguments Support.lvlib"/>
@@ -110,7 +111,6 @@
 				<Item Name="VIAnCtl Analysis App Info.ctl" Type="VI" URL="/&lt;vilib&gt;/addons/analyzer/_analyzerctrls.llb/VIAnCtl Analysis App Info.ctl"/>
 			</Item>
 			<Item Name="CSMStand(Lite).lvlib" Type="Library" URL="../../CSMStand(Lite)/src/CSMStand(Lite).lvlib"/>
-			<Item Name="Populate Response Variable - Advance.vi" Type="VI" URL="../../CSMStand(Lite)/src/Engine/_Support/Populate Response Variable - Advance.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="CSMStand_Lite" Type="EXE">
