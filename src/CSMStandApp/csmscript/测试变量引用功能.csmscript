@@ -1,0 +1,55 @@
+//普通读取
+Increment >> 12 -@ csm => Response
+Increment >> ${response} -@ csm => Response
+Increment >> ${resPONSE} -@ csm => response
+Increment >> ${response} -@ csm => response
+Increment >> ${response} -@ csm => response
+Increment >> ${response} -@ csm => response
+
+//显示变量名称
+Echo Argument >> ${response} -@ csm
+Echo Argument >> ${response1} -@ csm
+Echo Argument >> ${response2} -@ csm
+Echo Argument >> ${IntfromINI} -@ csm
+
+//从ini中先读取数据，labview.IntfromINI 存在，这个是默认的section，因此可以省略section名称
+Increment >> ${IntfromINI:200} -@ csm => Response1
+Increment >> ${response1} -@ csm => Response1
+Increment >> ${resPONSE1} -@ csm => response1
+Increment >> ${response1} -@ csm => response1
+Increment >> ${response1} -@ csm => response1
+Increment >> ${response1} -@ csm => response1
+
+//显示变量名称
+Echo Argument >> ${response} -@ csm
+Echo Argument >> ${response1} -@ csm
+Echo Argument >> ${response2} -@ csm
+Echo Argument >> ${IntfromINI} -@ csm
+
+//从ini中先读取数据，section.IntfromINI 不存在
+Increment >> ${section.IntfromINI:200} -@ csm => Response2
+Increment >> ${response2} -@ csm => Response2
+Increment >> ${resPONSE2} -@ csm => response2
+Increment >> ${response2} -@ csm => response2
+Increment >> ${response2} -@ csm => response2
+Increment >> ${response2} -@ csm => response2
+
+//显示变量名称
+Echo Argument >> ${response} -@ csm
+Echo Argument >> ${response1} -@ csm
+Echo Argument >> ${response2} -@ csm
+Echo Argument >> ${IntfromINI} -@ csm
+
+//优先从脚本创建的变量中读取数据
+Increment >> 300 -@ csm => IntfromINI
+Increment >> ${IntfromINI} -@ csm => IntfromINI
+Increment >> ${IntfromINI} -@ csm => IntfromINI
+Increment >> ${IntfromINI} -@ csm => IntfromINI
+Increment >> ${IntfromINI} -@ csm => IntfromINI
+Increment >> ${IntfromINI} -@ csm => IntfromINI
+
+//显示变量名称
+Echo Argument >> ${response} -@ csm
+Echo Argument >> ${response1} -@ csm
+Echo Argument >> ${response2} -@ csm
+Echo Argument >> ${IntfromINI} -@ csm

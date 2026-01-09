@@ -1,0 +1,52 @@
+//-----------------<setup>-----------------
+initialize >> DAQ1 -@ ai
+
+//-----------------<main>-----------------
+configure >> Onboardclock;10,-10,RSE -@ ai
+
+//----- 普通用法
+// 保存返回值到变量 waveform, 实际的类型为 massdata 格式的一维波形数组
+read >> num:1000 -@ ai => waveform   //return massdata:1d waveform array
+// 使用之前保存的 waveform 变量作为输入参数
+fft >> ${waveform} -@ algorithm => spectrum // return massdata:1d waveform array
+// 可以跨语句继续使用同样的变量
+analyzerPeak >> ${waveform} -@ algorithm => peak result // return APIString: {PeakValue:DBL;PeakNum:INT}
+peakResultAnalyze >> ${peak result} -@ algorithm
+
+//----- 引用返回值中的具体键值
+//使用 `${变量名.键名}` 引用某返回值中的具体键值
+configure trigger >> Type:Analog; TriggerLevel:{peak result.PeakValue} -@ ai
+//覆盖之前保存的返回值
+read >> num:1000 -@ ai => waveform   //return massdata:1d waveform array
+
+//----- 引用多个解析值
+FetchDBL -@ ai => dbl1
+FetchDBL -@ ai => dbl2
+//支持多个变量同时解析
+FindLargestInArray >> ${dbl1},${dbl2} => largestValue
+
+//---- 覆盖关系
+analyzerPeak >> ${waveform} -@ algorithm =>peak result // return APIString: {PeakValue:DBL;PeakNum:INT}
+//将覆盖之前的 peak result 变量中的 PeakValue
+FetchDBL -@ ai => peak result.PeakValue
+// 获取的 peak result 应该是新的 PeakValue 和之前的 PeakNum
+peakResultAnalyze >> ${peak result} -@ algorithm
+
+//---- 此时的内存结构
+// - waveform : massdata:1d waveform array
+// - spectrum : massdata:1d waveform array
+// - peak result : APIString: {PeakValue:DBL;PeakNum:INT}
+// - dbl1 : DBL
+// - dbl2 : DBL
+// - largestValue : DBL
+// - peak result.PeakValue : DBL
+
+// 读取 peak result 时，继续解析查找 peak result.PeakNum 和 peak result.PeakValue, 发现有覆盖，则使用最新的值
+// 读取 peak result.PeakValue 时，会先尝试找完全匹配，然后寻找 peak result 中的 PeakValue 键值
+// a.b.c 这种情况，会先找 a.b.c 变量，找不到再找 a 变量中的 b.c 键值， 找不到再找 a.b 变量中的 c 键值，依此类推
+//[ ] 此逻辑时否合理？
+
+//[ ] 是否支持嵌套的变量？ ${parentcluster.${dbl2}}
+
+//-----------------<cleanup>-----------------
+close -@ ai
