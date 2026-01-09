@@ -42,6 +42,9 @@
 			<Item Name="Populate Response Variable - Advance.vi" Type="VI" URL="../Engine/_Support/Populate Response Variable - Advance.vi"/>
 			<Item Name="Populate Response Variable.vi" Type="VI" URL="../Engine/_Support/Populate Response Variable.vi"/>
 			<Item Name="Working Thread.vi" Type="VI" URL="../Engine/_Support/Working Thread.vi"/>
+			<Item Name="Read Variable Value.vi" Type="VI" URL="../Engine/_Support/Read Variable Value.vi"/>
+			<Item Name="Write Variable Value.vi" Type="VI" URL="../Engine/_Support/Write Variable Value.vi"/>
+			<Item Name="Parse Variable Value Pairs.vi" Type="VI" URL="../Engine/_Support/Parse Variable Value Pairs.vi"/>
 		</Item>
 		<Item Name="CSM" Type="Folder">
 			<Item Name="Engine(CSM).vi" Type="VI" URL="../Engine/Engine(CSM).vi"/>

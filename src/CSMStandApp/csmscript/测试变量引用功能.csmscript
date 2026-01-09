@@ -53,3 +53,25 @@ Echo Argument >> ${response} -@ csm
 Echo Argument >> ${response1} -@ csm
 Echo Argument >> ${response2} -@ csm
 Echo Argument >> ${IntfromINI} -@ csm
+
+Random Cluster -@ csm => cluster
+Echo Argument >> ${cluster} -@ csm
+Echo Argument >> ${cluster.a} -@ csm
+Echo Argument >> ${cluster.b} -@ csm
+Echo Argument >> 12345 -@ csm => cluster.a
+Echo Argument >> ${cluster} -@ csm
+Echo Argument >> ${cluster.a} -@ csm
+
+
+Random Cluster -@ csm => x;y
+Echo Argument >> ${x} -@ csm
+Echo Argument >> ${y} -@ csm
+
+Random Array -@ csm => x;y
+Echo Argument >> ${x} -@ csm
+Echo Argument >> ${y} -@ csm
+
+Random Array(massdata) -@ csm => x;y
+Echo Argument >> ${x} -@ csm
+Echo Argument >> ${y} -@ csm
+
