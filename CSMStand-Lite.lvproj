@@ -108,11 +108,6 @@
 				<Item Name="VIAnCtl Analysis App Info.ctl" Type="VI" URL="/&lt;vilib&gt;/addons/analyzer/_analyzerctrls.llb/VIAnCtl Analysis App Info.ctl"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
-			<Item Name="CSM - Run Script - Advance.vi" Type="VI" URL="../src/CSMStand(Lite)/src/_shared/CSM - Run Script - Advance.vi"/>
-			<Item Name="Parse Variable Value Pairs.vi" Type="VI" URL="../src/CSMStand(Lite)/src/_shared/Parse Variable Value Pairs.vi"/>
-			<Item Name="Populate Response Variable - Advance.vi" Type="VI" URL="../src/CSMStand(Lite)/src/_shared/Populate Response Variable - Advance.vi"/>
-			<Item Name="Read Variable Value.vi" Type="VI" URL="../src/CSMStand(Lite)/src/_shared/Read Variable Value.vi"/>
-			<Item Name="Write Variable Value.vi" Type="VI" URL="../src/CSMStand(Lite)/src/_shared/Write Variable Value.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
