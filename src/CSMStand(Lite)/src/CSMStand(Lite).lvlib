@@ -34,6 +34,9 @@
 	<Property Name="SaveStatePeriod" Type="UInt">0</Property>
 	<Property Name="Serialized ACL" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!A1%!!!@````]!!".V&lt;H.J:WZF:#"C?82F)'&amp;S=G&amp;Z!!%!!1!!!!A)!!!!#!!!!!!!!!!</Property>
 	<Property Name="Use Data Logging Database" Type="Bool">true</Property>
+	<Item Name="Resource" Type="Folder">
+		<Item Name="global-rc-strings.vi" Type="VI" URL="../resource/global-rc-strings.vi"/>
+	</Item>
 	<Item Name="Engine" Type="Folder">
 		<Item Name="_Support" Type="Folder">
 			<Item Name="anchor map.vi" Type="VI" URL="../Engine/_Support/anchor map.vi"/>
