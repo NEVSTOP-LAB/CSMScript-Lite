@@ -22,9 +22,7 @@
 		<Item Name="APP" Type="Folder">
 			<Item Name="CSMStandApp.vi" Type="VI" URL="../CSMStandApp.vi"/>
 		</Item>
-		<Item Name="user.lib" Type="Folder" URL="../user.lib">
-			<Property Name="NI.DISK" Type="Bool">true</Property>
-		</Item>
+		<Item Name="user.lib" Type="Folder"/>
 		<Item Name="Launcher.vi" Type="VI" URL="../Launcher.vi"/>
 		<Item Name="csm-app.ini" Type="Document" URL="../csm-app.ini"/>
 		<Item Name="Dependencies" Type="Dependencies">
@@ -113,6 +111,10 @@
 				<Item Name="VIAnCtl Analysis App Info.ctl" Type="VI" URL="/&lt;vilib&gt;/addons/analyzer/_analyzerctrls.llb/VIAnCtl Analysis App Info.ctl"/>
 			</Item>
 			<Item Name="CSMStand(Lite).lvlib" Type="Library" URL="../../CSMStand(Lite)/src/CSMStand(Lite).lvlib"/>
+			<Item Name="Parse Variable Value Pairs.vi" Type="VI" URL="../../CSMStand(Lite)/src/_shared/Parse Variable Value Pairs.vi"/>
+			<Item Name="Populate Response Variable - Advance.vi" Type="VI" URL="../../CSMStand(Lite)/src/_shared/Populate Response Variable - Advance.vi"/>
+			<Item Name="Read Variable Value.vi" Type="VI" URL="../../CSMStand(Lite)/src/_shared/Read Variable Value.vi"/>
+			<Item Name="Write Variable Value.vi" Type="VI" URL="../../CSMStand(Lite)/src/_shared/Write Variable Value.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="CSMStand_Lite" Type="EXE">

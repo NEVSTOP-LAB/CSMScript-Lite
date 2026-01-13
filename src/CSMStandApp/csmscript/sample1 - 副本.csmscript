@@ -2,7 +2,7 @@
 initialize >> DAQ1 -@ ai
 
 //-----------------<main>-----------------
-configure >> Onboardclock;10,-10,RSE -@ ai
+configure >> Onboard Clock;10,-10,RSE -@ ai
 
 //----- 普通用法
 // 保存返回值到变量 waveform, 实际的类型为 massdata 格式的一维波形数组
