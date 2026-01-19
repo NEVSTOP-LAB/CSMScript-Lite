@@ -22,10 +22,6 @@
 		<Item Name="APP" Type="Folder">
 			<Item Name="CSMStandApp.vi" Type="VI" URL="../CSMStandApp.vi"/>
 		</Item>
-		<Item Name="user.lib" Type="Folder"/>
-		<Item Name="_shared" Type="Folder" URL="../../CSMStand(Lite)/src/_shared">
-			<Property Name="NI.DISK" Type="Bool">true</Property>
-		</Item>
 		<Item Name="Launcher.vi" Type="VI" URL="../Launcher.vi"/>
 		<Item Name="csm-app.ini" Type="Document" URL="../csm-app.ini"/>
 		<Item Name="Dependencies" Type="Dependencies">
