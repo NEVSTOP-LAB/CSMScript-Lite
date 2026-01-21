@@ -103,8 +103,8 @@ close -@ ai
 ```
 
 > [!NOTE]
-> 默认的情况下，自动错误处理的是不打开的，需要通过 `AUTO_ERROR_HANDLE_ENABLE` 指令开启。
-> 此时当发生错误时，将继续执行之后的指令。
+> By default, automatic error handling is disabled and needs to be enabled via the `AUTO_ERROR_HANDLE_ENABLE` command.
+> When an error occurs, it will continue executing the subsequent commands.
 
 > [!NOTE]
-> 最常见的锚点主要用于定义脚本运行阶段，例如可以定义类似 TestStand 序列的 `<setup>`, `<main>`, `<cleanup>` 等锚点。
+> The most common anchors are used to define script execution stages, for example, you can define anchors similar to TestStand sequences such as `<setup>`, `<main>`, `<cleanup>`, etc.
