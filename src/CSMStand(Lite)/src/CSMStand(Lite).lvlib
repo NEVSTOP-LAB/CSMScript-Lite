@@ -37,6 +37,10 @@
 	<Item Name="Resource" Type="Folder">
 		<Item Name="global-rc-strings.vi" Type="VI" URL="../resource/global-rc-strings.vi"/>
 	</Item>
+	<Item Name="Utility" Type="Folder">
+		<Item Name="CSM - Async Start Group of CSMs.vi" Type="VI" URL="../API/CSM - Async Start Group of CSMs.vi"/>
+		<Item Name="Argument to Large String.vi" Type="VI" URL="../API/Argument to Large String.vi"/>
+	</Item>
 	<Item Name="Engine" Type="Folder">
 		<Item Name="_Support" Type="Folder">
 			<Item Name="anchor map.vi" Type="VI" URL="../Engine/_Support/anchor map.vi"/>
@@ -67,9 +71,5 @@
 			<Item Name="VersionDialog(CSM).vi" Type="VI" URL="../UI/VersionDialog(CSM).vi"/>
 			<Item Name="ExecutionView(CSM).vi" Type="VI" URL="../UI/ExecutionView(CSM).vi"/>
 		</Item>
-	</Item>
-	<Item Name="API" Type="Folder">
-		<Item Name="CSM - Async Start Group of CSMs.vi" Type="VI" URL="../API/CSM - Async Start Group of CSMs.vi"/>
-		<Item Name="Argument to Large String.vi" Type="VI" URL="../API/Argument to Large String.vi"/>
 	</Item>
 </Library>
