@@ -50,6 +50,7 @@
 		</Item>
 		<Item Name="Typedef" Type="Folder">
 			<Item Name="Def-StepComplete Event Data.ctl" Type="VI" URL="../Engine/Typedef/Def-StepComplete Event Data.ctl"/>
+			<Item Name="Def-Thread Data.ctl" Type="VI" URL="../Engine/Typedef/Def-Thread Data.ctl"/>
 		</Item>
 	</Item>
 	<Item Name="UI" Type="Folder">
