@@ -43,6 +43,7 @@
 			<Item Name="Internal Operation.vi" Type="VI" URL="../Engine/_Support/Internal Operation.vi"/>
 			<Item Name="Working Thread.vi" Type="VI" URL="../Engine/_Support/Working Thread.vi"/>
 			<Item Name="Populate Variables in CMD.vi" Type="VI" URL="../Engine/_Support/Populate Variables in CMD.vi"/>
+			<Item Name="Time String to Millisecond.vi" Type="VI" URL="../Engine/_Support/Time String to Millisecond.vi"/>
 		</Item>
 		<Item Name="CSM" Type="Folder">
 			<Item Name="Engine(CSM).vi" Type="VI" URL="../Engine/Engine(CSM).vi"/>

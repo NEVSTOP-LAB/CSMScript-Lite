@@ -1,3 +1,4 @@
+<setup>
 //setup
 read(massdata)@ai >> Action: Update Chart@Chart -><register>
 UI: Front Panel State >> Open -@ Chart
@@ -8,7 +9,8 @@ Channels -@ ai
 <main>
 
 //ai/0
-Action: Wait(ms) >> 1000 -@ chart
+wait >> 1.5s
+
 read >> ai/0;100 -@ ai
 read >> ai/0;2 -@ ai
 read >> ai/0;2 -@ ai
@@ -16,7 +18,8 @@ read >> ai/0;2 -@ ai
 read(massdata) >> ai/0;100 -@ ai
 
 //ai/1
-Action: Wait(ms) >> 1000 -@ chart
+wait >> 1s 500ms
+
 read >> ai/1;2 -@ ai
 read >> ai/1;2 -@ ai
 read >> ai/1;2 -@ ai
