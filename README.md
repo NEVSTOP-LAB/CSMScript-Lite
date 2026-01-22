@@ -64,7 +64,7 @@ wait(s) >> 1.5  // Wait for 1.5 seconds
 
 ### Anchor Jumping
 
-Supports defining anchors in scripts and jumping to specified anchors for continued execution based on error jumps or variable logic judgments.
+Supports defining anchors in scripts and jumping to specified anchors for continued execution based on error jumps or variable logic judgments, which is case-insensitive.
 
 - **Anchor Definition Format**: `<anchor_name>`, e.g., `<setup>`, `<main>`, `<error_handler>`, `<cleanup>`, etc.
 - **Anchor Jump Format**: `?? goto >> <anchor_name>` syntax, jumps to the specified anchor when a command execution error occurs. The default expression indicates jumping on command execution error.
@@ -111,3 +111,6 @@ close -@ ai
 
 > [!NOTE]
 > The most common anchors are used to define script execution stages, for example, you can define anchors similar to TestStand sequences such as `<setup>`, `<main>`, `<cleanup>`, etc.
+
+> [!NOTE]
+> The GOTO command and AUTO_ERROR_HANDLE_ANCHOR command parameters can include the <> symbols or not. For example, `GOTO >> cleanup` and `GOTO >> <cleanup>` have the same effect.

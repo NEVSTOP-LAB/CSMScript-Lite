@@ -66,7 +66,7 @@ wait(s) >> 1.5  // 等待 1.5 秒
 
 支持在脚本中定义锚点，并通过错误跳转或变量逻辑判断跳转到指定锚点继续执行脚本。
 
-- **锚点定义格式**：`<anchor_name>`，例如 `<setup>`、`<main>`、`<error_handler>`、`<cleanup>` 等。
+- **锚点定义格式**：`<anchor_name>`，例如 `<setup>`、`<main>`、`<error_handler>`、`<cleanup>` 等，大小写不敏感。
 - **锚点跳转格式**：`?? goto >> <anchor_name>` 语法，在指令执行错误时跳转到指定锚点继续执行脚本。缺省 expression 表示指令执行错误时跳转。
 
 `AUTO_ERROR_HANDLE_ANCHOR` 指令可以设置自动错误跳转的锚点，缺省为 `<cleanup>`。
@@ -111,3 +111,6 @@ close -@ ai
 
 > [!NOTE]
 > 最常见的锚点主要用于定义脚本运行阶段，例如可以定义类似 TestStand 序列的 `<setup>`, `<main>`, `<cleanup>` 等锚点。
+
+> [!NOTE]
+> GOTO 指令和 AUTO_ERROR_HANDLE_ANCHOR 指令参数中可以携带 <> 符号，也可以不携带，例如 `GOTO >> cleanup` 和 `GOTO >> <cleanup>` 效果相同。
