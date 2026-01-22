@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2026-01-19 09:31:22" Creator="liyao" Comments="" ID="3ae3c611fafa64f79c8707ded8d4d878">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2026-01-22 14:42:20" Creator="liyao" Comments="" ID="175902baf2a58832a40d674b75db77b0">
   <Library_General_Settings>
     <Package_File_Name>NEVSTOP_LAB_CSMStand_Lite</Package_File_Name>
     <Library_Version>2025.12.1.6</Library_Version>
@@ -35,7 +35,51 @@
     <VI_Package_Configuration_File>CSMStand-Lite.vipc</VI_Package_Configuration_File>
     <Description>
       <One_Line_Description_Summary/>
-      <Description/>
+      <Description># CSMStand-Lite
+
+## Introduction
+
+CSMStand-Lite is a script execution engine based on the Communicable State Machine (CSM) framework, designed to run flexible CSM test scripts for automated testing. It also serves to demonstrate the capabilities of the CSM framework. Its design is inspired by NI TestStand, which is the origin of its name.
+
+This project includes:
+
+1. **CSMStand-Lite Library**: A lightweight CSM script execution engine, itself implemented as a CSM-based module.
+   - **Engine**: The core execution engine responsible for parsing and executing CSM scripts, managing test states and results.
+   - **UI**: The user interface that provides script management, execution control, and result viewing.
+2. **CSMStandApp**: A CSM UI module that calls the CSMStand-Lite engine, demonstrating how to integrate and use CSMStand-Lite.
+3. **Example Project**: Showcases how to use CSMStand-Lite in conjunction with other CSM modules to achieve script execution and automated testing.
+
+Examples of CSMStand Script:
+
+```c
+// Enable automatic error handling
+AUTO_ERROR_HANDLE_ENABLE &gt;&gt; TRUE
+// Set the automatic error jump anchor to error_handler, no longer using cleanup as the default anchor
+AUTO_ERROR_HANDLE_ANCHOR &gt;&gt; error_handler
+
+&lt;setup&gt;  // ----- setup anchor ----
+
+// Logically, if initialization fails, there's no need to execute the stop command,
+// so here we explicitly add a jump to the cleanup anchor on error.
+// If this command fails, it will jump to the cleanup anchor
+initialize &gt;&gt; daq1 -@ ai ?? goto &gt;&gt; &lt;cleanup&gt;
+
+&lt;main&gt;  // ----- main anchor ----
+
+// All subsequent commands, if they fail, will jump to the error_handler anchor
+configure &gt;&gt; Onboard Clock;10,-10,RSE -@ ai
+
+start -@ ai
+
+acquire &gt;&gt; Channel:ch0;Num:1000 -@ ai
+
+&lt;error_handler&gt;  // ----- error handler anchor ----
+stop -@ ai
+
+&lt;cleanup&gt; //----- cleanup anchor ----
+close -@ ai
+
+```</Description>
       <Copyright/>
       <Packager>NEVSTOP</Packager>
       <URL/>
