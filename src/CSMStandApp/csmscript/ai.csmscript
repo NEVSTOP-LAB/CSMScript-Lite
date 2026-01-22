@@ -13,6 +13,8 @@ read >> ai/0;2 -@ ai
 read >> ai/0;2 -@ ai
 read(massdata) >> ai/0;100 -@ ai
 
+THROW_ERROR_AS_NOT_SUPPPORT_CMD >> arguments
+
 //ai/1
 Action: Wait(ms) >> 1000 -@ chart
 read >> ai/1;2 -@ ai
@@ -23,3 +25,5 @@ read(massdata) >> ai/1;100 -@ ai
 
 //cleanup
 read(massdata)@ai >> Action: Update Chart@Chart -><unregister>
+wait >> 2s
+UI: Front Panel State >> Close -@ Chart
