@@ -14,6 +14,8 @@ This project includes:
 2. **CSMStandApp**: A CSM UI module that calls the CSMStand-Lite engine, demonstrating how to integrate and use CSMStand-Lite.
 3. **Example Project**: Showcases how to use CSMStand-Lite in conjunction with other CSM modules to achieve script execution and automated testing.
 
+![CSMStandApp](.github/csmstand%20ui.png)
+
 ## CSMStand-Lite Library Feature Overview
 
 ### Basic Feature: Script Execution
@@ -38,14 +40,14 @@ CSMStand includes some extended commands not provided by CSM, used to implement 
 
 The format is similar to CSM commands: `command >> parameters`, and command names are case-insensitive.
 
-| Command Set Name       | Command                   | Description                                                  |
-| ---------------------- | ------------------------- | ------------------------------------------------------------ |
-| Jump Command           | GOTO                      | Jump to the specified `<anchor>`                             |
-| Enable/Disable Auto Error Handling | AUTO_ERROR_HANDLE_ENABLE | Enable or disable automatic error handling                   |
-| Set Auto Error Jump Anchor | AUTO_ERROR_HANDLE_ANCHOR | Set the anchor for automatic error jumps, default is `<cleanup>` |
-| Wait Command 1         | WAIT, Sleep               | Wait for a specified time, supports minute(min), second(s), millisecond(ms) |
-| Wait Command 2         | WAIT(s), Sleep(s)         | Wait for a specified time in seconds, parameter is Float type |
-| Wait Command 3         | WAIT(ms), Sleep(ms)       | Wait for a specified time in milliseconds, parameter is NUMERIC type |
+| Command Set Name                   | Command                  | Description                                                                 |
+|------------------------------------|--------------------------|-----------------------------------------------------------------------------|
+| Jump Command                       | GOTO                     | Jump to the specified `<anchor>`                                            |
+| Enable/Disable Auto Error Handling | AUTO_ERROR_HANDLE_ENABLE | Enable or disable automatic error handling                                  |
+| Set Auto Error Jump Anchor         | AUTO_ERROR_HANDLE_ANCHOR | Set the anchor for automatic error jumps, default is `<cleanup>`            |
+| Wait Command 1                     | WAIT, Sleep              | Wait for a specified time, supports minute(min), second(s), millisecond(ms) |
+| Wait Command 2                     | WAIT(s), Sleep(s)        | Wait for a specified time in seconds, parameter is Float type               |
+| Wait Command 3                     | WAIT(ms), Sleep(ms)      | Wait for a specified time in milliseconds, parameter is NUMERIC type        |
 
 Examples:
 
@@ -81,7 +83,8 @@ AUTO_ERROR_HANDLE_ANCHOR >> error_handler
 
 <setup>  // ----- setup anchor ----
 
-// Logically, if initialization fails, there's no need to execute the stop command, so here we explicitly add a jump to the cleanup anchor on error
+// Logically, if initialization fails, there's no need to execute the stop command,
+// so here we explicitly add a jump to the cleanup anchor on error.
 // If this command fails, it will jump to the cleanup anchor
 initialize >> daq1 -@ ai ?? goto >> <cleanup>
 
