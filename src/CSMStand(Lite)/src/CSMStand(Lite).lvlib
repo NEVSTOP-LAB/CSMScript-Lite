@@ -38,8 +38,8 @@
 		<Item Name="global-rc-strings.vi" Type="VI" URL="../resource/global-rc-strings.vi"/>
 	</Item>
 	<Item Name="Utility" Type="Folder">
-		<Item Name="CSM - Async Start Group of CSMs.vi" Type="VI" URL="../API/CSM - Async Start Group of CSMs.vi"/>
-		<Item Name="Argument to Large String.vi" Type="VI" URL="../API/Argument to Large String.vi"/>
+		<Item Name="CSM - Async Start Group of CSMs.vi" Type="VI" URL="../Utility/CSM - Async Start Group of CSMs.vi"/>
+		<Item Name="Argument to Large String.vi" Type="VI" URL="../Utility/Argument to Large String.vi"/>
 	</Item>
 	<Item Name="Engine" Type="Folder">
 		<Item Name="_Support" Type="Folder">
