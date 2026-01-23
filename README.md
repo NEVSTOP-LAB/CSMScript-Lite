@@ -16,6 +16,17 @@ This project includes:
 
 ![CSMStandApp](.github/csmstand%20ui.png)
 
+## Dependencies
+
+- LabVIEW 2020 and above versions
+- NEVSTOP-LAB Palette
+- Communicable State Machine (CSM) Framework
+  - Communicable State Machine(CSM)
+  - CSM API String Arguments Support
+  - CSM MassData Parameter Support
+  - CSM INI Static Variable Support
+- NEVSTOP-Programming-Palette
+
 ## CSMStand-Lite Library Feature Overview
 
 ### Basic Feature: Script Execution
