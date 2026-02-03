@@ -38,8 +38,9 @@
 		<Item Name="global-rc-strings.vi" Type="VI" URL="../resource/global-rc-strings.vi"/>
 	</Item>
 	<Item Name="Utility" Type="Folder">
-		<Item Name="CSM - Async Start Group of CSMs.vi" Type="VI" URL="../Utility/CSM - Async Start Group of CSMs.vi"/>
 		<Item Name="Argument to Large String.vi" Type="VI" URL="../Utility/Argument to Large String.vi"/>
+		<Item Name="CSM - Async Start Group of CSMs.vi" Type="VI" URL="../Utility/CSM - Async Start Group of CSMs.vi"/>
+		<Item Name="Time String to Millisecond.vi" Type="VI" URL="../Engine/_Support/Time String to Millisecond.vi"/>
 	</Item>
 	<Item Name="Engine" Type="Folder">
 		<Item Name="_Support" Type="Folder">
@@ -47,7 +48,6 @@
 			<Item Name="Internal Operation.vi" Type="VI" URL="../Engine/_Support/Internal Operation.vi"/>
 			<Item Name="Working Thread.vi" Type="VI" URL="../Engine/_Support/Working Thread.vi"/>
 			<Item Name="Populate Variables in CMD.vi" Type="VI" URL="../Engine/_Support/Populate Variables in CMD.vi"/>
-			<Item Name="Time String to Millisecond.vi" Type="VI" URL="../Engine/_Support/Time String to Millisecond.vi"/>
 		</Item>
 		<Item Name="CSM" Type="Folder">
 			<Item Name="Engine(CSM).vi" Type="VI" URL="../Engine/Engine(CSM).vi"/>
@@ -71,5 +71,8 @@
 			<Item Name="VersionDialog(CSM).vi" Type="VI" URL="../UI/VersionDialog(CSM).vi"/>
 			<Item Name="ExecutionView(CSM).vi" Type="VI" URL="../UI/ExecutionView(CSM).vi"/>
 		</Item>
+	</Item>
+	<Item Name="APP" Type="Folder">
+		<Item Name="CSMStandApp.vi" Type="VI" URL="../APP/CSMStandApp.vi"/>
 	</Item>
 </Library>
