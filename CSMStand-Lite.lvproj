@@ -16,7 +16,7 @@
 		<Item Name="CSMStandApp" Type="Folder" URL="../src/CSMStandApp">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="CSMStand(Lite).lvlib" Type="Library" URL="../src/CSMStand(Lite)/src/CSMStand(Lite).lvlib"/>
+		<Item Name="CSMStand-Engine(Lite).lvlib" Type="Library" URL="../src/CSMStand(Lite)/src/CSMStand-Engine(Lite).lvlib"/>
 		<Item Name="CSMStand-Lite.vipb" Type="Document" URL="../CSMStand-Lite.vipb"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
