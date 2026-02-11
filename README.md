@@ -1,7 +1,5 @@
 # CSMStand-Lite
 
-[English](./README.md) | [中文](<./README(zh-cn).md>)
-
 ## 简介
 
 CSMStand-Lite 是一款基于 Communicable State Machine (CSM) 框架的脚本执行引擎，能够运行灵活的 CSM 测试脚本，实现自动化测试。同时，它也用于展示 CSM 框架的功能。其设计类似于 NI TestStand，这也是其名称的来源。
