@@ -10,14 +10,20 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="_test" Type="Folder" URL="../src/_test">
-			<Property Name="NI.DISK" Type="Bool">true</Property>
+		<Item Name="CSMStandApp" Type="Folder">
+			<Item Name="CodeModules" Type="Folder">
+				<Item Name="HAL-AI.vi" Type="VI" URL="../CSMStandApp/CodeModules/HAL-AI.vi"/>
+				<Item Name="HAL-DIO.vi" Type="VI" URL="../CSMStandApp/CodeModules/HAL-DIO.vi"/>
+				<Item Name="MAL-TEST.vi" Type="VI" URL="../CSMStandApp/CodeModules/MAL-TEST.vi"/>
+				<Item Name="UI-Chart.vi" Type="VI" URL="../CSMStandApp/CodeModules/UI-Chart.vi"/>
+			</Item>
+			<Item Name="csmscript" Type="Folder">
+				<Item Name="ai.csmscript" Type="Document" URL="../CSMStandApp/csmscript/ai.csmscript"/>
+				<Item Name="ai2.csmscript" Type="Document" URL="../CSMStandApp/csmscript/ai2.csmscript"/>
+			</Item>
+			<Item Name="Launcher.vi" Type="VI" URL="../CSMStandApp/Launcher.vi"/>
 		</Item>
-		<Item Name="CSMStandApp" Type="Folder" URL="../src/CSMStandApp">
-			<Property Name="NI.DISK" Type="Bool">true</Property>
-		</Item>
-		<Item Name="CSMStand-Engine(Lite).lvlib" Type="Library" URL="../src/CSMStand(Lite)/src/CSMStand-Engine(Lite).lvlib"/>
-		<Item Name="CSMStand-Lite.vipb" Type="Document" URL="../CSMStand-Lite.vipb"/>
+		<Item Name="CSMStand-Engine(Lite).lvlib" Type="Library" URL="../CSMStand(Lite)/CSMStand-Engine(Lite).lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="API String Arguments Support.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/Communicable State Machine(CSM)/addons/API-String-Arugments-Support/API String Arguments Support.lvlib"/>
@@ -85,10 +91,6 @@
 				<Item Name="Not Found Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Not Found Dialog.vi"/>
 				<Item Name="Point2Rect.vi" Type="VI" URL="/&lt;vilib&gt;/picture/PictureSupport.llb/Point2Rect.vi"/>
 				<Item Name="PointInRect.vi" Type="VI" URL="/&lt;vilib&gt;/picture/PictureSupport.llb/PointInRect.vi"/>
-				<Item Name="Random Number (Range) DBL.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) DBL.vi"/>
-				<Item Name="Random Number (Range) I64.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) I64.vi"/>
-				<Item Name="Random Number (Range) U64.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) U64.vi"/>
-				<Item Name="Random Number (Range).vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range).vi"/>
 				<Item Name="RectCentroid.vi" Type="VI" URL="/&lt;vilib&gt;/picture/PictureSupport.llb/RectCentroid.vi"/>
 				<Item Name="RectSize.vi" Type="VI" URL="/&lt;vilib&gt;/picture/PictureSupport.llb/RectSize.vi"/>
 				<Item Name="Search and Replace Pattern.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Search and Replace Pattern.vi"/>
@@ -98,7 +100,6 @@
 				<Item Name="Set Cursor (Icon Pict).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor (Icon Pict).vi"/>
 				<Item Name="Set Cursor.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor.vi"/>
 				<Item Name="Set String Value.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Set String Value.vi"/>
-				<Item Name="sub_Random U32.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/sub_Random U32.vi"/>
 				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
 				<Item Name="TagReturnType.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/TagReturnType.ctl"/>
 				<Item Name="Three Button Dialog CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog CORE.vi"/>
@@ -109,6 +110,45 @@
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
 		</Item>
-		<Item Name="Build Specifications" Type="Build"/>
+		<Item Name="Build Specifications" Type="Build">
+			<Item Name="CSMStand-Engine(Lite).lvlibp" Type="Packed Library">
+				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
+				<Property Name="Bld_buildCacheID" Type="Str">{553C94FF-B25B-4F3C-8FEE-32D2446AAE57}</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">CSMStand-Engine(Lite).lvlibp</Property>
+				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
+				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../CSMStand</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
+				<Property Name="Bld_previewCacheID" Type="Str">{B8FBC4A0-2584-4377-A931-B9F7AE3B16FF}</Property>
+				<Property Name="Bld_version.major" Type="Int">1</Property>
+				<Property Name="Destination[0].destName" Type="Str">CSMStand-Engine(Lite).lvlibp</Property>
+				<Property Name="Destination[0].path" Type="Path">../CSMStand/CSMStand-Engine(Lite).lvlibp</Property>
+				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
+				<Property Name="Destination[0].type" Type="Str">App</Property>
+				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
+				<Property Name="Destination[1].path" Type="Path">../CSMStand</Property>
+				<Property Name="DestinationCount" Type="Int">2</Property>
+				<Property Name="PackedLib_callersAdapt" Type="Bool">true</Property>
+				<Property Name="Source[0].itemID" Type="Str">{AEB6EC16-1A72-4AFF-B043-9B5371988DFE}</Property>
+				<Property Name="Source[0].type" Type="Str">Container</Property>
+				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/My Computer/CSMStand-Engine(Lite).lvlib</Property>
+				<Property Name="Source[1].Library.allowMissingMembers" Type="Bool">true</Property>
+				<Property Name="Source[1].Library.atomicCopy" Type="Bool">true</Property>
+				<Property Name="Source[1].Library.LVLIBPtopLevel" Type="Bool">true</Property>
+				<Property Name="Source[1].preventRename" Type="Bool">true</Property>
+				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[1].type" Type="Str">Library</Property>
+				<Property Name="SourceCount" Type="Int">2</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">CSMStand-Engine(Lite).lvlibp</Property>
+				<Property Name="TgtF_internalName" Type="Str">CSMStand-Engine(Lite).lvlibp</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright ?2026 </Property>
+				<Property Name="TgtF_productName" Type="Str">CSMStand-Engine(Lite).lvlibp</Property>
+				<Property Name="TgtF_targetfileGUID" Type="Str">{0A50ED69-8957-484F-8DBB-CB3523CBD51B}</Property>
+				<Property Name="TgtF_targetfileName" Type="Str">CSMStand-Engine(Lite).lvlibp</Property>
+				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
+			</Item>
+		</Item>
 	</Item>
 </Project>

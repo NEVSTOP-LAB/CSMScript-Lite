@@ -1,24 +1,24 @@
 # CSMStand-Lite
 
-[English](./README.md) | [中文](./README(zh-cn).md)
+[English](./README.md) | [中文](<./README(zh-cn).md>)
 
-## Introduction
+## 简介
 
-CSMStand-Lite is a script execution engine based on the Communicable State Machine (CSM) framework, designed to run flexible CSM test scripts for automated testing. It also serves to demonstrate the capabilities of the CSM framework. Its design is inspired by NI TestStand, which is the origin of its name.
+CSMStand-Lite 是一款基于 Communicable State Machine (CSM) 框架的脚本执行引擎，能够运行灵活的 CSM 测试脚本，实现自动化测试。同时，它也用于展示 CSM 框架的功能。其设计类似于 NI TestStand，这也是其名称的来源。
 
-This project includes:
+此项目包括：
 
-1. **CSMStand-Lite Library**: A lightweight CSM script execution engine, itself implemented as a CSM-based module.
-   - **Engine**: The core execution engine responsible for parsing and executing CSM scripts, managing test states and results.
-   - **UI**: The user interface that provides script management, execution control, and result viewing.
-2. **CSMStandApp**: A CSM UI module that calls the CSMStand-Lite engine, demonstrating how to integrate and use CSMStand-Lite.
-3. **Example Project**: Showcases how to use CSMStand-Lite in conjunction with other CSM modules to achieve script execution and automated testing.
+1. **CSMStand-Lite Library**：一个轻量级的 CSM 脚本执行引擎，它本身也是基于 CSM 实现的模块。
+  - Engine：核心执行引擎，负责解析和执行 CSM 脚本，管理测试状态和结果。
+  - UI：用户界面，提供脚本管理、执行控制和结果查看功能。
+  - App：一个示例应用程序，展示如何使用 CSMStand 库进行脚本执行。
+3. **实例工程**：展示如何使用 CSMStand-Lite 配合其他 CSM 模块，实现脚本执行和自动化测试。
 
 ![CSMStandApp](.github/csmstand%20ui.png)
 
-## Dependencies
+## 依赖关系
 
-- LabVIEW 2020 and above versions
+- LabVIEW 2020 及以上版本
 - NEVSTOP-LAB Palette
 - Communicable State Machine (CSM) Framework
   - Communicable State Machine(CSM)
@@ -27,15 +27,15 @@ This project includes:
   - CSM INI Static Variable Support
 - NEVSTOP-Programming-Palette
 
-## CSMStand-Lite Library Feature Overview
+## CSMStand-Lite Library 功能说明
 
-### Basic Feature: Script Execution
+### 基础功能：脚本执行
 
-Supports all CSM commands, including synchronous messages, asynchronous messages, broadcast subscriptions, and more. For detailed information, please refer to the CSM framework documentation.
+支持 CSM 的全部命令，包括同步消息、异步消息、广播订阅等功能。详细的信息，请参考 CSM 框架的文档。
 
-### Return Value Storage and Passing
+### 返回值保存传递 (Return Value)
 
-Using the `=> variable_name` syntax, the return value of a command is stored in the script's temporary variable space for use in subsequent commands. For example:
+通过 `=> 变量名` 语法，将指令的返回值保存到脚本的临时变量空间中，供后续指令使用。例如：
 
 ```c
 message1 >> arguments -@ module1 => returnValueVar
@@ -43,65 +43,65 @@ message2 >> ${returnValueVar} -@ module2
 ```
 
 > [!NOTE]
-> This feature is also supported in CSM - Run Script.vi, and it functions identically here.
+> CSM - Run Script.vi 中也支持此功能，此处的功能与之相同。
 
-### Extended Commands
+### 扩充指令 (Extended Commands)
 
-CSMStand includes some extended commands not provided by CSM, used to implement basic functionalities such as jump instructions.
+CSMStand 内置了一些非 CSM 提供的扩充指令，用于实现基本功能，如跳转指令等。
 
-The format is similar to CSM commands: `command >> parameters`, and command names are case-insensitive.
+格式与 CSM 指令类似：`指令 >> 参数`，指令名称大小写不敏感。
 
-| Command Set Name                   | Command                  | Description                                                                 |
-|------------------------------------|--------------------------|-----------------------------------------------------------------------------|
-| Jump Command                       | GOTO                     | Jump to the specified `<anchor>`                                            |
-| Enable/Disable Auto Error Handling | AUTO_ERROR_HANDLE_ENABLE | Enable or disable automatic error handling                                  |
-| Set Auto Error Jump Anchor         | AUTO_ERROR_HANDLE_ANCHOR | Set the anchor for automatic error jumps, default is `<cleanup>`            |
-| Wait Command 1                     | WAIT, Sleep              | Wait for a specified time, supports minute(min), second(s), millisecond(ms) |
-| Wait Command 2                     | WAIT(s), Sleep(s)        | Wait for a specified time in seconds, parameter is Float type               |
-| Wait Command 3                     | WAIT(ms), Sleep(ms)      | Wait for a specified time in milliseconds, parameter is NUMERIC type        |
+| 指令集名称            | 指令                     | 说明                                                         |
+| --------------------- | ------------------------ | ------------------------------------------------------------ |
+| 跳转指令              | GOTO                     | 跳转到指定的 `<anchor>`                                      |
+| 开启/关闭自动错误处理 | AUTO_ERROR_HANDLE_ENABLE | 开启或关闭自动错误处理功能                                   |
+| 设置自动错误跳转锚点  | AUTO_ERROR_HANDLE_ANCHOR | 设置自动错误跳转的锚点，默认为 `<cleanup>`                   |
+| 等待指令1             | WAIT, Sleep              | 等待指定的时间，支持 minute(min)、second(s)、microsecond(ms) |
+| 等待指令2             | WAIT(s), Sleep(s)        | 等待指定的时间，单位为秒，参数为 Float 类型                  |
+| 等待指令3             | WAIT(ms), Sleep(ms)      | 等待指定的时间，单位为毫秒，参数为 NUMERIC 类型              |
 
-Examples:
+举例：
 
 ```c
 message1 >> arguments -@ csm
-wait >> 1min 20s 500ms  // Wait for 1 minute 20 seconds 500 milliseconds
+wait >> 1min 20s 500ms  // 等待 1 分 20 秒 500 毫秒
 
 message1 >> arguments -@ csm
-wait(ms) >> 100  // Wait for 100 milliseconds
+wait(ms) >> 100  // 等待 100 毫秒
 
 message1 >> arguments -@ csm
-wait(s) >> 1.5  // Wait for 1.5 seconds
+wait(s) >> 1.5  // 等待 1.5 秒
 ```
 
-### Anchor Jumping
+### 锚点跳转 (Anchor)
 
-Supports defining anchors in scripts and jumping to specified anchors for continued execution based on error jumps or variable logic judgments, which is case-insensitive.
+支持在脚本中定义锚点，并通过错误跳转或变量逻辑判断跳转到指定锚点继续执行脚本。
 
-- **Anchor Definition Format**: `<anchor_name>`, e.g., `<setup>`, `<main>`, `<error_handler>`, `<cleanup>`, etc.
-- **Anchor Jump Format**: `?? goto >> <anchor_name>` syntax, jumps to the specified anchor when a command execution error occurs. The default expression indicates jumping on command execution error.
+- **锚点定义格式**：`<anchor_name>`，例如 `<setup>`、`<main>`、`<error_handler>`、`<cleanup>` 等，大小写不敏感。
+- **锚点跳转格式**：`?? goto >> <anchor_name>` 语法，在指令执行错误时跳转到指定锚点继续执行脚本。缺省 expression 表示指令执行错误时跳转。
 
-The `AUTO_ERROR_HANDLE_ANCHOR` command can set the anchor for automatic error jumps, defaulting to `<cleanup>`.
+`AUTO_ERROR_HANDLE_ANCHOR` 指令可以设置自动错误跳转的锚点，缺省为 `<cleanup>`。
 
-The `AUTO_ERROR_HANDLE_ENABLE` command can enable automatic error handling, automatically jumping to the preset anchor when a command execution error occurs.
+`AUTO_ERROR_HANDLE_ENABLE` 指令可以开启自动错误处理功能，当指令执行错误时，自动跳转到预设的锚点继续执行脚本。
 
-For example:
+例如：
 
 ```c
-// Enable automatic error handling
+// 开启自动错误处理
 AUTO_ERROR_HANDLE_ENABLE >> TRUE
-// Set the automatic error jump anchor to error_handler, no longer using cleanup as the default anchor
+// 设置自动错误跳转锚点为 error_handler，不再使用 cleanup 作为默认锚点
 AUTO_ERROR_HANDLE_ANCHOR >> error_handler
 
 <setup>  // ----- setup anchor ----
 
-// Logically, if initialization fails, there's no need to execute the stop command,
-// so here we explicitly add a jump to the cleanup anchor on error.
-// If this command fails, it will jump to the cleanup anchor
+// 逻辑上，初始化失败，无需执行 stop 指令，
+// 所以这里显式添加了错误时跳转到 cleanup 锚点，
+// 当此指令执行失败时，将跳转到 cleanup 锚点
 initialize >> daq1 -@ ai ?? goto >> <cleanup>
 
 <main>  // ----- main anchor ----
 
-// All subsequent commands, if they fail, will jump to the error_handler anchor
+// 之后的所有指令，如果执行失败，都将跳转到 error_handler 锚点
 configure >> Onboard Clock;10,-10,RSE -@ ai
 
 start -@ ai
@@ -117,11 +117,11 @@ close -@ ai
 ```
 
 > [!NOTE]
-> By default, automatic error handling is disabled and needs to be enabled via the `AUTO_ERROR_HANDLE_ENABLE` command.
-> When an error occurs, it will continue executing the subsequent commands.
+> 默认的情况下，自动错误处理的是不打开的，需要通过 `AUTO_ERROR_HANDLE_ENABLE` 指令开启。
+> 此时当发生错误时，将继续执行之后的指令。
 
 > [!NOTE]
-> The most common anchors are used to define script execution stages, for example, you can define anchors similar to TestStand sequences such as `<setup>`, `<main>`, `<cleanup>`, etc.
+> 最常见的锚点主要用于定义脚本运行阶段，例如可以定义类似 TestStand 序列的 `<setup>`, `<main>`, `<cleanup>` 等锚点。
 
 > [!NOTE]
-> The GOTO command and AUTO_ERROR_HANDLE_ANCHOR command parameters can include the <> symbols or not. For example, `GOTO >> cleanup` and `GOTO >> <cleanup>` have the same effect.
+> GOTO 指令和 AUTO_ERROR_HANDLE_ANCHOR 指令参数中可以携带 <> 符号，也可以不携带，例如 `GOTO >> cleanup` 和 `GOTO >> <cleanup>` 效果相同。
