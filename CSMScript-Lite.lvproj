@@ -103,25 +103,25 @@
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="CSMScript-Engine(Lite).lvlibp" Type="Packed Library">
-				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
 				<Property Name="Bld_buildCacheID" Type="Str">{553C94FF-B25B-4F3C-8FEE-32D2446AAE57}</Property>
 				<Property Name="Bld_buildSpecName" Type="Str">CSMScript-Engine(Lite).lvlibp</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">../CSMStand</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../CSMScript/lvlibp</Property>
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{B8FBC4A0-2584-4377-A931-B9F7AE3B16FF}</Property>
-				<Property Name="Bld_version.major" Type="Int">1</Property>
+				<Property Name="Bld_version.build" Type="Int">1</Property>
+				<Property Name="Bld_version.minor" Type="Int">3</Property>
 				<Property Name="Destination[0].destName" Type="Str">CSMScript-Engine(Lite).lvlibp</Property>
-				<Property Name="Destination[0].path" Type="Path">../CSMStand/CSMScript-Engine(Lite).lvlibp</Property>
+				<Property Name="Destination[0].path" Type="Path">../CSMScript/lvlibp/CSMScript-Engine(Lite).lvlibp</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">../CSMStand</Property>
+				<Property Name="Destination[1].path" Type="Path">../CSMScript/lvlibp</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="PackedLib_callersAdapt" Type="Bool">true</Property>
-				<Property Name="Source[0].itemID" Type="Str">{FB21BA7C-2CBE-4B4F-B293-EB0FBB2EDE22}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{EAF08421-C83C-4E37-81FE-2420F99E180F}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/CSMScript-Engine(Lite).lvlib</Property>
@@ -132,6 +132,7 @@
 				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
 				<Property Name="Source[1].type" Type="Str">Library</Property>
 				<Property Name="SourceCount" Type="Int">2</Property>
+				<Property Name="TgtF_companyName" Type="Str">NEVSTOP-LAB</Property>
 				<Property Name="TgtF_internalName" Type="Str">CSMScript-Engine(Lite).lvlibp</Property>
 				<Property Name="TgtF_legalCopyright" Type="Str">Copyright ?2026 </Property>
 				<Property Name="TgtF_productName" Type="Str">CSMScript-Engine(Lite).lvlibp</Property>
