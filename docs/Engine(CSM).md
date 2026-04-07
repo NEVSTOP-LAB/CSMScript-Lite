@@ -123,7 +123,7 @@
 
 - **参数**：`API String` — `Def-StepComplete Event Data.ctl`：步骤完成的状态数据
   - index - Numeric: 步骤在序列中的索引位置
-  - Arguments - String: 结果字符串
+  - Response - String: 结果字符串
   - Error - Error Cluster: 当前步骤的错误信息
 
 ### `SequenceCompleted Event`
