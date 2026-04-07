@@ -37,9 +37,9 @@
 
 ### `TS: Load Sequence`
 
-加载指定的 `.csmscript` 脚本文件并解析为内部序列数据。加载完成后会广播 `SequenceLoaded Event`。
+加载指定的 `.csmscript` 脚本。加载完成后会广播 `SequenceLoaded Event`。
 
-- **参数**：用户自定义 — `String`：脚本文件的绝对路径（如 `C:\scripts\test.csmscript`）
+- **参数**：`API String` | `MassData` | `HexStr` — `String`：脚本文件的内容
 - **响应**：N/A
 
 ### `TS: Unload Sequence`
@@ -65,13 +65,14 @@
 
 ### 参数类型说明
 
-| 类型 | 说明 | 链接 |
-| --- | --- | --- |
-| `APIString` | 支持嵌套键值对的纯文本字符串，需要 CSM API String Arguments Support 插件 | [GitHub](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support) |
-| 用户自定义 | 由模块自行解析的字符串，无需额外插件 | — |
-| `HexStr` | 将 LabVIEW Variant 序列化为十六进制字符串，内置支持 | — |
-| `SafeStr` | 将特殊字符编码为 `%[HEXCODE]`，内置支持 | — |
-| `MassData` | 内存映射缓冲区，传递 `Start:N,Size:M`，需要 CSM MassData Parameter Support 插件 | [GitHub](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support) |
+| 类型        | 说明                                                                            |
+| ----------- | ------------------------------------------------------------------------------- |
+| `HexStr`    | 将 LabVIEW Variant 序列化为十六进制字符串，内置支持                             |
+| `SafeStr`   | 将特殊字符编码为 `%[HEXCODE]`，内置支持                                         |
+| `ErrStr`    | 将错误信息编码为字符串，内置支持                                                |
+| `APIString` | 支持嵌套键值对的纯文本字符串，需要 CSM API String Arguments Support 插件        |
+| `MassData`  | 内存映射缓冲区，传递 `Start:N,Size:M`，需要 CSM MassData Parameter Support 插件 |
+| 用户自定义  | 由模块自行解析的字符串，无需额外插件，但是要说明具体的解析规则和格式            |
 
 ---
 
@@ -81,15 +82,15 @@
 
 ### `SequenceLoaded Event`
 
-**广播类型**：`Status`
+**默认广播类型**：`Status`
 
 当 `TS: Load Sequence` 成功加载脚本文件后发出。
 
-- **参数**：N/A
+- **参数**：`API String` | `MassData` | `HexStr` — `String`：脚本文件的内容
 
 ### `SequenceUnloaded Event`
 
-**广播类型**：`Status`
+**默认广播类型**：`Status`
 
 当 `TS: Unload Sequence` 成功卸载序列后发出。
 
@@ -97,7 +98,7 @@
 
 ### `SequenceStarted Event`
 
-**广播类型**：`Status`
+**默认广播类型**：`Status`
 
 当脚本序列开始执行时发出。
 
@@ -105,23 +106,29 @@
 
 ### `StepStart Event`
 
-**广播类型**：`Status`
+**默认广播类型**：`Status`
 
 当脚本中某一步骤开始执行时发出。
 
-- **参数**：`HexStr` — `Def-Thread Data.ctl`：当前步骤的线程数据
+- **参数**：`API String` — Cluster(`Def-Thread Data.ctl`)：当前步骤的线程数据
+  - index - Numeric: 步骤在序列中的索引位置
+  - Arguments - String: 步骤参数字符串（原始文本）
+  - Error - Error Cluster: 当前步骤的错误信息
 
 ### `StepComplete Event`
 
-**广播类型**：`Status`
+**默认广播类型**：`Status`
 
 当脚本中某一步骤执行完成时发出。
 
-- **参数**：`HexStr` — `Def-StepComplete Event Data.ctl`：步骤完成的状态数据（含结果与错误信息）
+- **参数**：`API String` — `Def-StepComplete Event Data.ctl`：步骤完成的状态数据
+  - index - Numeric: 步骤在序列中的索引位置
+  - Arguments - String: 结果字符串
+  - Error - Error Cluster: 当前步骤的错误信息
 
 ### `SequenceCompleted Event`
 
-**广播类型**：`Status`
+**默认广播类型**：`Status`
 
 当脚本序列全部执行完毕时发出。
 
@@ -129,11 +136,11 @@
 
 ### `Error Occurred`
 
-**广播类型**：`Status`
+**默认广播类型**：`Status`
 
 当引擎发生未处理的错误时发出（标准 CSM 错误广播）。
 
-- **参数**：`HexStr` — `Error Cluster`：错误信息
+- **参数**：`ErrStr` — `Error Cluster`：错误信息
 
 ---
 
@@ -141,7 +148,6 @@
 
 > [!IMPORTANT]
 > - 必须先调用 `TS: Load Sequence` 成功加载脚本后，才能调用 `TS: SinglePass`。
-> - 本模块为**单例**——同一时间不可运行多个实例。
 > - 使用 `TS: Terminate` 可以在执行过程中强制终止序列，但不会等待当前正在执行的 CSM 消息返回。
 
 ---
@@ -150,9 +156,9 @@
 
 ### 基本生命周期
 
-```text
+```csm
 // 加载脚本文件
-TS: Load Sequence >> C:\scripts\test.csmscript -> Engine
+TS: Load Sequence >> C:\scripts\test.csmscript -@ Engine
 
 // 订阅加载完成事件后执行
 SequenceLoaded Event@Engine >> TS: SinglePass@Engine -><register>
@@ -163,7 +169,7 @@ SequenceCompleted Event@Engine >> TS: Unload Sequence@Engine -><register>
 
 ### 订阅步骤状态广播
 
-```text
+```csm
 // 将 Engine 的步骤完成事件路由到 UI 模块处理
 StepComplete Event@Engine >> TS: Step Complete Handler@ExecutionView -><register>
 StepStart Event@Engine >> TS: Step Start Handler@ExecutionView -><register>
@@ -178,5 +184,5 @@ StepStart Event@Engine >> TS: Step Start Handler@ExecutionView -><register>
 
 ---
 
-_完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>_
-_CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>_
+- _完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>_
+- _CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>_

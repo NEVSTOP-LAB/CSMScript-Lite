@@ -38,39 +38,40 @@
 
 将本 UI 模块关联到指定的 `Engine(CSM)` 实例。关联成功后，UI 模块自动订阅该引擎的执行广播事件，以更新显示状态。
 
-- **参数**：用户自定义 — `String`：目标引擎模块的名称（如 `Engine`）
+- **参数**：`API String` — `String`：目标引擎模块的名称（如 `Engine`）
 - **响应**：N/A
 
 ### `TS: Load Sequence`
 
 将已加载的脚本序列的步骤信息更新到 UI 显示列表中，通常在引擎触发 `SequenceLoaded Event` 后由上层模块调用。
 
-- **参数**：N/A
+- **参数**：`API String` | `MassData` | `HexStr` — `String`：脚本文件的内容
 - **响应**：N/A
 
 ### `UI: Front Panel State`
 
 控制本模块前面板的显示状态。
 
-- **参数**：用户自定义 — `String`：`Open`、`Close` 或 `Minimize`
+- **参数**：`API String` — `Enum`：`Open`、`Close` 或 `Minimize`
 - **响应**：N/A
 
 ### `UI: Cursor Set`
 
 设置前面板光标样式。
 
-- **参数**：用户自定义 — `String`：光标类型名称（如 `Busy`、`Default`）
+- **参数**：`API String` — `Enum`：光标类型名称（如 `Busy`、`Default`）
 - **响应**：N/A
 
 ### 参数类型说明
 
-| 类型 | 说明 | 链接 |
-| --- | --- | --- |
-| `APIString` | 支持嵌套键值对的纯文本字符串，需要 CSM API String Arguments Support 插件 | [GitHub](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support) |
-| 用户自定义 | 由模块自行解析的字符串，无需额外插件 | — |
-| `HexStr` | 将 LabVIEW Variant 序列化为十六进制字符串，内置支持 | — |
-| `SafeStr` | 将特殊字符编码为 `%[HEXCODE]`，内置支持 | — |
-| `MassData` | 内存映射缓冲区，传递 `Start:N,Size:M`，需要 CSM MassData Parameter Support 插件 | [GitHub](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support) |
+| 类型        | 说明                                                                            |
+| ----------- | ------------------------------------------------------------------------------- |
+| `HexStr`    | 将 LabVIEW Variant 序列化为十六进制字符串，内置支持                             |
+| `SafeStr`   | 将特殊字符编码为 `%[HEXCODE]`，内置支持                                         |
+| `ErrStr`    | 将错误信息编码为字符串，内置支持                                                |
+| `APIString` | 支持嵌套键值对的纯文本字符串，需要 CSM API String Arguments Support 插件        |
+| `MassData`  | 内存映射缓冲区，传递 `Start:N,Size:M`，需要 CSM MassData Parameter Support 插件 |
+| 用户自定义  | 由模块自行解析的字符串，无需额外插件，但是要说明具体的解析规则和格式            |
 
 ---
 
@@ -95,19 +96,18 @@
 
 ### `Error Occurred`
 
-**广播类型**：`Status`
+**默认广播类型**：`Status`
 
 当 UI 模块发生未处理的错误时发出。
 
-- **参数**：`HexStr` — `Error Cluster`：错误信息
+- **参数**：`ErrStr` — `Error Cluster`：错误信息
 
 ---
 
 ## 调用限制与注意事项
 
 > [!IMPORTANT]
-> - 必须先启动 `Engine(CSM)` 模块，再调用 `TS: Link to Engine`，否则关联将失败。
-> - 本模块为**单例**——同一时间不可运行多个实例。
+>
 > - `TS: Load Sequence` 通常由上层模块（如 `App.vi`）在收到引擎 `SequenceLoaded Event` 广播后触发，无需手动调用步骤更新逻辑。
 
 ---
@@ -116,25 +116,25 @@
 
 ### 启动并关联引擎
 
-```text
+```csm
 // 先启动 Engine 模块
 // ...（在代码中使用 CSM - Async Start Group of CSMs.vi 启动引擎和 UI）
 
 // 将 UI 关联到引擎
-TS: Link to Engine >> Engine -> ExecutionView
+TS: Link to Engine >> Engine -@ ExecutionView
 
 // 打开 UI 前面板
-UI: Front Panel State >> Open -> ExecutionView
+UI: Front Panel State >> Open -@ ExecutionView
 ```
 
 ### 加载脚本并更新视图
 
-```text
+```csm
 // 加载脚本文件到引擎
-TS: Load Sequence >> C:\scripts\test.csmscript -> Engine
+TS: Load Sequence >> C:\scripts\test.csmscript -@ Engine
 
 // 加载完成后更新 UI 视图（通常由 App 模块在订阅事件后触发）
-TS: Load Sequence -> ExecutionView
+TS: Load Sequence -@ ExecutionView
 ```
 
 ---
@@ -142,9 +142,8 @@ TS: Load Sequence -> ExecutionView
 ## 备注
 
 - UI 显示风格（步骤列表样式、列宽等）由 `Sequence-DefaultStyle.vi` 提供的默认样式初始化。
-- 如需自定义显示行为，可通过替换 `Support/` 下的相应辅助 VI 实现。
 
 ---
 
-_完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>_
-_CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>_
+- _完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>_
+- _CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>_

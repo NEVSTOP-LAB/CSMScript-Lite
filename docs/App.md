@@ -41,7 +41,7 @@
 
 加载指定的 `.csmscript` 脚本文件。内部将先调用 `TS: Load Sequence` 加载到引擎，并在加载完成后更新 ExecutionView 的步骤列表。
 
-- **参数**：用户自定义 — `String`：脚本文件的绝对路径（如 `C:\scripts\test.csmscript`）
+- **参数**：`API String`：脚本文件的绝对路径（如 `C:\scripts\test.csmscript`）
 - **响应**：N/A
 
 ### `API: Unload Sequence File`
@@ -51,36 +51,44 @@
 - **参数**：N/A
 - **响应**：N/A
 
-### `API: Information`
+<!-- ### `API: Information`
 
 显示关于本应用的版本与信息对话框。
 
 - **参数**：N/A
-- **响应**：N/A
+- **响应**：N/A -->
 
-### `API: Settings`
+<!-- ### `API: Settings`
 
 打开设置对话框，允许用户修改应用配置。
 
 - **参数**：N/A
-- **响应**：N/A
+- **响应**：N/A -->
 
 ### `UI: Front Panel State`
 
-控制本模块（主窗口）前面板的显示状态。
+控制本模块前面板的显示状态。
 
-- **参数**：用户自定义 — `String`：`Open`、`Close` 或 `Minimize`
+- **参数**：`API String` — `Enum`：`Open`、`Close` 或 `Minimize`
+- **响应**：N/A
+
+### `UI: Cursor Set`
+
+设置前面板光标样式。
+
+- **参数**：`API String` — `Enum`：光标类型名称（如 `Busy`、`Default`）
 - **响应**：N/A
 
 ### 参数类型说明
 
-| 类型 | 说明 | 链接 |
-| --- | --- | --- |
-| `APIString` | 支持嵌套键值对的纯文本字符串，需要 CSM API String Arguments Support 插件 | [GitHub](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support) |
-| 用户自定义 | 由模块自行解析的字符串，无需额外插件 | — |
-| `HexStr` | 将 LabVIEW Variant 序列化为十六进制字符串，内置支持 | — |
-| `SafeStr` | 将特殊字符编码为 `%[HEXCODE]`，内置支持 | — |
-| `MassData` | 内存映射缓冲区，传递 `Start:N,Size:M`，需要 CSM MassData Parameter Support 插件 | [GitHub](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support) |
+| 类型        | 说明                                                                            |
+| ----------- | ------------------------------------------------------------------------------- |
+| `HexStr`    | 将 LabVIEW Variant 序列化为十六进制字符串，内置支持                             |
+| `SafeStr`   | 将特殊字符编码为 `%[HEXCODE]`，内置支持                                         |
+| `ErrStr`    | 将错误信息编码为字符串，内置支持                                                |
+| `APIString` | 支持嵌套键值对的纯文本字符串，需要 CSM API String Arguments Support 插件        |
+| `MassData`  | 内存映射缓冲区，传递 `Start:N,Size:M`，需要 CSM MassData Parameter Support 插件 |
+| 用户自定义  | 由模块自行解析的字符串，无需额外插件，但是要说明具体的解析规则和格式            |
 
 ---
 
@@ -105,11 +113,11 @@
 
 ### `Error Occurred`
 
-**广播类型**：`Status`
+**默认广播类型**：`Status`
 
 当应用模块发生未处理的错误时发出。
 
-- **参数**：`HexStr` — `Error Cluster`：错误信息
+- **参数**：`ErrStr` — 错误信息
 
 ---
 
@@ -126,23 +134,23 @@
 
 ### 基本生命周期
 
-```text
+```csm
 // 打开主窗口
-UI: Front Panel State >> Open -> App
+UI: Front Panel State >> Open -@ App
 
 // 加载脚本文件
-API: Load Script File >> C:\scripts\test.csmscript -> App
+API: Load Script File >> C:\scripts\test.csmscript -@ App
 
 // 卸载脚本
-API: Unload Sequence File -> App
+API: Unload Sequence File -@ App
 
 // 查看版本信息
-API: Information -> App
+API: Information -@ App
 ```
 
 ### 嵌入到更大系统中
 
-```text
+```csm
 // 在系统初始化时启动 App 模块（通过 CSM - Async Start Group of CSMs.vi 启动）
 // 然后直接发送 API 消息控制脚本加载与执行：
 API: Load Script File >> ${scriptPath} -> App
@@ -157,5 +165,5 @@ API: Load Script File >> ${scriptPath} -> App
 
 ---
 
-_完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>_
-_CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>_
+- _完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>_
+- _CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>_
