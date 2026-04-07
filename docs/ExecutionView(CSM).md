@@ -10,23 +10,23 @@
 
 ## 模块信息
 
-| 属性 | 值 |
-| --- | --- |
-| LabVIEW 版本 | ≥ 2020 |
-| 支持的操作系统 | Windows |
-| 支持 RT | ❌ 不支持 |
-| 支持 64-bit | ✅ 支持 |
-| 所属模块组 | CSMScript-Engine(Lite).lvlib |
+| 属性           | 值                           |
+| -------------- | ---------------------------- |
+| LabVIEW 版本   | ≥ 2020                       |
+| 支持的操作系统 | Windows                      |
+| 支持 RT        | ❌ 不支持                    |
+| 支持 64-bit    | ✅ 支持                      |
+| 所属模块组     | CSMScript-Engine(Lite).lvlib |
 
 ---
 
 ## 依赖项
 
-| 依赖 | 类型 |
-| --- | --- |
-| [Communicable-State-Machine](https://github.com/NEVSTOP-LAB/Communicable-State-Machine) | 必须 |
-| [CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support) | 必须 |
-| Engine(CSM) | 必须（作为关联引擎） |
+| 依赖                                                                                                | 类型                 |
+| --------------------------------------------------------------------------------------------------- | -------------------- |
+| [Communicable-State-Machine](https://github.com/NEVSTOP-LAB/Communicable-State-Machine)             | 必须                 |
+| [CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support) | 必须                 |
+| Engine(CSM)                                                                                         | 必须（作为关联引擎） |
 
 ---
 
@@ -68,11 +68,11 @@
 
 以下状态由本模块内部使用，或在与引擎关联后通过广播订阅自动触发，**不应**由外部调用者直接发送。
 
-| 状态 | 触发来源 | 说明 |
-| --- | --- | --- |
-| `TS: Test Started Handler` | `SequenceStarted Event@Engine` | 序列开始时更新 UI 状态 |
-| `TS: Step Start Handler` | `StepStart Event@Engine` | 步骤开始时高亮当前行 |
-| `TS: Step Complete Handler` | `StepComplete Event@Engine` | 步骤完成时显示结果 |
+| 状态                        | 触发来源                         | 说明                   |
+| --------------------------- | -------------------------------- | ---------------------- |
+| `TS: Test Started Handler`  | `SequenceStarted Event@Engine`   | 序列开始时更新 UI 状态 |
+| `TS: Step Start Handler`    | `StepStart Event@Engine`         | 步骤开始时高亮当前行   |
+| `TS: Step Complete Handler` | `StepComplete Event@Engine`      | 步骤完成时显示结果     |
 | `TS: Test Complete Handler` | `SequenceCompleted Event@Engine` | 序列完成时更新 UI 汇总 |
 
 ---
@@ -135,5 +135,5 @@ TS: Load Sequence -> ExecutionView
 
 ---
 
-*完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>*  
-*CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>*
+_完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>_
+_CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>_

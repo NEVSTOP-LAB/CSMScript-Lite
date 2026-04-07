@@ -10,24 +10,24 @@
 
 ## 模块信息
 
-| 属性 | 值 |
-| --- | --- |
-| LabVIEW 版本 | ≥ 2020 |
-| 支持的操作系统 | Windows |
-| 支持 RT | ❌ 不支持 |
-| 支持 64-bit | ✅ 支持 |
-| 所属模块组 | CSMScript-Engine(Lite).lvlib |
+| 属性           | 值                           |
+| -------------- | ---------------------------- |
+| LabVIEW 版本   | ≥ 2020                       |
+| 支持的操作系统 | Windows                      |
+| 支持 RT        | ❌ 不支持                    |
+| 支持 64-bit    | ✅ 支持                      |
+| 所属模块组     | CSMScript-Engine(Lite).lvlib |
 
 ---
 
 ## 依赖项
 
-| 依赖 | 类型 |
-| --- | --- |
-| [Communicable-State-Machine](https://github.com/NEVSTOP-LAB/Communicable-State-Machine) | 必须 |
+| 依赖                                                                                                | 类型 |
+| --------------------------------------------------------------------------------------------------- | ---- |
+| [Communicable-State-Machine](https://github.com/NEVSTOP-LAB/Communicable-State-Machine)             | 必须 |
 | [CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support) | 必须 |
-| [CSM-MassData-Parameter-Support](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support) | 必须 |
-| [CSM-INI-Static-Variable-Support](https://github.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support) | 必须 |
+| [CSM-MassData-Parameter-Support](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)     | 必须 |
+| [CSM-INI-Static-Variable-Support](https://github.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support)   | 必须 |
 
 ---
 
@@ -167,5 +167,5 @@ StepStart Event@Engine >> TS: Step Start Handler@ExecutionView -><register>
 
 ---
 
-*完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>*  
-*CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>*
+_完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>_
+_CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>_

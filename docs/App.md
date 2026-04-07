@@ -10,26 +10,26 @@
 
 ## 模块信息
 
-| 属性 | 值 |
-| --- | --- |
-| LabVIEW 版本 | ≥ 2020 |
-| 支持的操作系统 | Windows |
-| 支持 RT | ❌ 不支持 |
-| 支持 64-bit | ✅ 支持 |
-| 所属模块组 | CSMScript-Engine(Lite).lvlib |
+| 属性           | 值                           |
+| -------------- | ---------------------------- |
+| LabVIEW 版本   | ≥ 2020                       |
+| 支持的操作系统 | Windows                      |
+| 支持 RT        | ❌ 不支持                    |
+| 支持 64-bit    | ✅ 支持                      |
+| 所属模块组     | CSMScript-Engine(Lite).lvlib |
 
 ---
 
 ## 依赖项
 
-| 依赖 | 类型 |
-| --- | --- |
-| [Communicable-State-Machine](https://github.com/NEVSTOP-LAB/Communicable-State-Machine) | 必须 |
+| 依赖                                                                                                | 类型 |
+| --------------------------------------------------------------------------------------------------- | ---- |
+| [Communicable-State-Machine](https://github.com/NEVSTOP-LAB/Communicable-State-Machine)             | 必须 |
 | [CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support) | 必须 |
-| [CSM-MassData-Parameter-Support](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support) | 必须 |
-| [CSM-INI-Static-Variable-Support](https://github.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support) | 必须 |
-| Engine(CSM) | 必须 |
-| ExecutionView(CSM) | 必须 |
+| [CSM-MassData-Parameter-Support](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)     | 必须 |
+| [CSM-INI-Static-Variable-Support](https://github.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support)   | 必须 |
+| Engine(CSM)                                                                                         | 必须 |
+| ExecutionView(CSM)                                                                                  | 必须 |
 
 ---
 
@@ -78,12 +78,12 @@
 
 以下状态由模块内部使用，**不应**由外部调用者直接发送。
 
-| 状态 | 说明 |
-| --- | --- |
-| `UI: Insert CSMScript OI` | 将 ExecutionView 嵌入到主应用前面板 |
+| 状态                                | 说明                                          |
+| ----------------------------------- | --------------------------------------------- |
+| `UI: Insert CSMScript OI`           | 将 ExecutionView 嵌入到主应用前面板           |
 | `UI: Start CSMScript Engine Behind` | 在后台启动 Engine 和 ExecutionView 并完成关联 |
-| `UI: Show Version Dialog` | 在内部触发显示版本对话框 |
-| `UI: Update Title` | 更新主窗口标题（通常在加载/卸载脚本后触发） |
+| `UI: Show Version Dialog`           | 在内部触发显示版本对话框                      |
+| `UI: Update Title`                  | 更新主窗口标题（通常在加载/卸载脚本后触发）   |
 
 ---
 
@@ -146,5 +146,5 @@ API: Load Script File >> ${scriptPath} -> App
 
 ---
 
-*完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>*  
-*CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>*
+_完整 CSM 语法参考：<https://github.com/NEVSTOP-LAB/Communicable-State-Machine/blob/main/.doc/Syntax.md>_
+_CSM Wiki：<https://nevstop-lab.github.io/CSM-Wiki/>_
