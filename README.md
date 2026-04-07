@@ -19,11 +19,12 @@ This project includes:
 ## Dependencies
 
 - LabVIEW 2020 or later
-- [Communicable State Machine (CSM)](https://github.com/NEVSTOP-LAB/Communicable-State-Machine)
-  - CSM API String Arguments Support
-  - CSM MassData Parameter Support
-  - CSM INI Static Variable Support
-- NEVSTOP Programming Palette
+- [Communicable State Machine Framework](https://github.com/topics/labview-csm)
+  - [Communicable State Machine (CSM)](https://github.com/NEVSTOP-LAB/Communicable-State-Machine)
+  - [CSM API String Arguments Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support)
+  - [CSM MassData Parameter Support](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)
+  - [CSM INI Static Variable Support](https://github.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support)
+- [NEVSTOP Programming Palette](https://github.com/NEVSTOP-LAB/NEVSTOP-Programming-Palette)
 
 ## Features
 
