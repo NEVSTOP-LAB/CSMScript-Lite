@@ -90,6 +90,8 @@
 | `MassData`  | 内存映射缓冲区，传递 `Start:N,Size:M`，需要 CSM MassData Parameter Support 插件 |
 | 用户自定义  | 由模块自行解析的字符串，无需额外插件，但是要说明具体的解析规则和格式            |
 
+> **注意**：接口文档中对 `String` 类型数据统一使用 `APIString` 标注（不直接写 `SafeStr`），因为 `SafeStr` 正是 `APIString` 针对 `String` 类型的内部实现。
+
 ---
 
 ## 内部操作接口
@@ -124,6 +126,7 @@
 ## 调用限制与注意事项
 
 > [!IMPORTANT]
+>
 > - 本模块为**单例**——同一时间不可运行多个实例。
 > - 本模块在 `Macro: Initialize` 阶段会自动启动内部的 `Engine(CSM)` 和 `ExecutionView(CSM)` 子模块，无需外部手动启动这两个模块。
 > - `API: Load Script File` 与 `API: Unload Sequence File` 为互斥操作，应避免并发调用。
