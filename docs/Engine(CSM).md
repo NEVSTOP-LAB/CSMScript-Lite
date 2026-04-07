@@ -74,6 +74,8 @@
 | `MassData`  | 内存映射缓冲区，传递 `Start:N,Size:M`，需要 CSM MassData Parameter Support 插件 |
 | 用户自定义  | 由模块自行解析的字符串，无需额外插件，但是要说明具体的解析规则和格式            |
 
+> **注意**：接口文档中对 `String` 类型数据统一使用 `APIString` 标注（不直接写 `SafeStr`），因为 `SafeStr` 正是 `APIString` 针对 `String` 类型的内部实现。
+
 ---
 
 ## 状态广播接口
@@ -147,6 +149,7 @@
 ## 调用限制与注意事项
 
 > [!IMPORTANT]
+>
 > - 必须先调用 `TS: Load Sequence` 成功加载脚本后，才能调用 `TS: SinglePass`。
 > - 使用 `TS: Terminate` 可以在执行过程中强制终止序列，但不会等待当前正在执行的 CSM 消息返回。
 
