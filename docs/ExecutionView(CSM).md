@@ -62,6 +62,16 @@
 - **参数**：用户自定义 — `String`：光标类型名称（如 `Busy`、`Default`）
 - **响应**：N/A
 
+### 参数类型说明
+
+| 类型 | 说明 | 链接 |
+| --- | --- | --- |
+| `APIString` | 支持嵌套键值对的纯文本字符串，需要 CSM API String Arguments Support 插件 | [GitHub](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support) |
+| 用户自定义 | 由模块自行解析的字符串，无需额外插件 | — |
+| `HexStr` | 将 LabVIEW Variant 序列化为十六进制字符串，内置支持 | — |
+| `SafeStr` | 将特殊字符编码为 `%[HEXCODE]`，内置支持 | — |
+| `MassData` | 内存映射缓冲区，传递 `Start:N,Size:M`，需要 CSM MassData Parameter Support 插件 | [GitHub](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support) |
+
 ---
 
 ## 内部处理接口
@@ -95,9 +105,10 @@
 
 ## 调用限制与注意事项
 
-- [ ] 必须先启动 `Engine(CSM)` 模块，再调用 `TS: Link to Engine`，否则关联将失败。
-- [ ] 本模块为**单例**——同一时间不可运行多个实例。
-- [ ] `TS: Load Sequence` 通常由上层模块（如 `App.vi`）在收到引擎 `SequenceLoaded Event` 广播后触发，无需手动调用步骤更新逻辑。
+> [!IMPORTANT]
+> - 必须先启动 `Engine(CSM)` 模块，再调用 `TS: Link to Engine`，否则关联将失败。
+> - 本模块为**单例**——同一时间不可运行多个实例。
+> - `TS: Load Sequence` 通常由上层模块（如 `App.vi`）在收到引擎 `SequenceLoaded Event` 广播后触发，无需手动调用步骤更新逻辑。
 
 ---
 

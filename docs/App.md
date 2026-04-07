@@ -72,6 +72,16 @@
 - **参数**：用户自定义 — `String`：`Open`、`Close` 或 `Minimize`
 - **响应**：N/A
 
+### 参数类型说明
+
+| 类型 | 说明 | 链接 |
+| --- | --- | --- |
+| `APIString` | 支持嵌套键值对的纯文本字符串，需要 CSM API String Arguments Support 插件 | [GitHub](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support) |
+| 用户自定义 | 由模块自行解析的字符串，无需额外插件 | — |
+| `HexStr` | 将 LabVIEW Variant 序列化为十六进制字符串，内置支持 | — |
+| `SafeStr` | 将特殊字符编码为 `%[HEXCODE]`，内置支持 | — |
+| `MassData` | 内存映射缓冲区，传递 `Start:N,Size:M`，需要 CSM MassData Parameter Support 插件 | [GitHub](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support) |
+
 ---
 
 ## 内部操作接口
@@ -105,9 +115,10 @@
 
 ## 调用限制与注意事项
 
-- [ ] 本模块为**单例**——同一时间不可运行多个实例。
-- [ ] 本模块在 `Macro: Initialize` 阶段会自动启动内部的 `Engine(CSM)` 和 `ExecutionView(CSM)` 子模块，无需外部手动启动这两个模块。
-- [ ] `API: Load Script File` 与 `API: Unload Sequence File` 为互斥操作，应避免并发调用。
+> [!IMPORTANT]
+> - 本模块为**单例**——同一时间不可运行多个实例。
+> - 本模块在 `Macro: Initialize` 阶段会自动启动内部的 `Engine(CSM)` 和 `ExecutionView(CSM)` 子模块，无需外部手动启动这两个模块。
+> - `API: Load Script File` 与 `API: Unload Sequence File` 为互斥操作，应避免并发调用。
 
 ---
 
