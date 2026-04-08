@@ -19,11 +19,11 @@ CSMScript-Lite 是一款基于 [可通信状态机（CSM）](https://github.com/
 ## 依赖
 
 - LabVIEW 2020 及以上版本
-- [Communicable State Machine (CSM)](https://github.com/NEVSTOP-LAB/Communicable-State-Machine)
-  - CSM API String Arguments Support
-  - CSM MassData Parameter Support
-  - CSM INI Static Variable Support
-- NEVSTOP Programming Palette
+- [Communicable State Machine Framework](https://github.com/topics/labview-csm)
+  - [Communicable State Machine (CSM)](https://github.com/NEVSTOP-LAB/Communicable-State-Machine)
+  - [CSM API String Arguments Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support)
+  - [CSM MassData Parameter Support](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)
+  - [CSM INI Static Variable Support](https://github.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support)
 
 ## 功能说明
 
@@ -76,7 +76,7 @@ wait(s) >> 1.5           // 等待 1.5 秒
 - **锚点定义**：`<anchor_name>`，例如 `<setup>`、`<main>`、`<error_handler>`、`<cleanup>`，大小写不敏感。
 - **条件跳转**：`?? goto >> <anchor_name>`，在前一条指令出错时跳转到指定锚点。省略条件表达式等同于"任意错误时跳转"。
 
-`AUTO_ERROR_HANDLE_ANCHOR` 指令设置默认的错误跳转锚点（默认为 `<cleanup>`）。  
+`AUTO_ERROR_HANDLE_ANCHOR` 指令设置默认的错误跳转锚点（默认为 `<cleanup>`）。
 `AUTO_ERROR_HANDLE_ENABLE` 指令开启自动错误处理，任何指令执行失败时，自动跳转到预设锚点。
 
 示例：

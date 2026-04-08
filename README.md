@@ -24,7 +24,6 @@ This project includes:
   - [CSM API String Arguments Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support)
   - [CSM MassData Parameter Support](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)
   - [CSM INI Static Variable Support](https://github.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support)
-- [NEVSTOP Programming Palette](https://github.com/NEVSTOP-LAB/NEVSTOP-Programming-Palette)
 
 ## Features
 
@@ -77,7 +76,7 @@ Scripts can define named anchors and jump to them on error or via explicit `GOTO
 - **Anchor definition**: `<anchor_name>` — e.g., `<setup>`, `<main>`, `<error_handler>`, `<cleanup>`. Names are case-insensitive.
 - **Conditional jump**: `?? goto >> <anchor_name>` — jumps to the anchor if the preceding command produced an error. Omitting the condition expression means "on any error."
 
-`AUTO_ERROR_HANDLE_ANCHOR` sets the default error-jump anchor (default: `<cleanup>`).  
+`AUTO_ERROR_HANDLE_ANCHOR` sets the default error-jump anchor (default: `<cleanup>`).
 `AUTO_ERROR_HANDLE_ENABLE` turns on automatic error handling so that any failing command automatically jumps to the preset anchor.
 
 Example:
