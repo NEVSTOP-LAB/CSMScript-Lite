@@ -19,7 +19,7 @@ CSMScript-Lite 是一款基于 [可通信状态机（CSM）](https://github.com/
 ## 依赖
 
 - LabVIEW 2020 及以上版本
-- [Communicable State Machine Framework](https://github.com/topics/labview-csm)
+- [Communicable State Machine Framework 2026Q1](https://github.com/topics/labview-csm)
   - [Communicable State Machine (CSM)](https://github.com/NEVSTOP-LAB/Communicable-State-Machine)
   - [CSM API String Arguments Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support)
   - [CSM MassData Parameter Support](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)
