@@ -9,9 +9,9 @@ CSMScript-Lite is a lightweight script execution engine built on the [Communicab
 This project includes:
 
 - **CSMScript-Lite Library** — A lightweight CSM script execution engine, itself implemented as a CSM module.
-  - **[Engine](docs/Engine(CSM).md)**: Core execution engine that parses and runs CSM scripts, managing test state and results.
-  - **[UI (ExecutionView)](docs/ExecutionView(CSM).md)**: User interface for script management, execution control, and result viewing.
-  - **[App](docs/App.md)**: A sample application demonstrating how to use the CSMScript library.
+  - **[Engine](src/_docs/Engine(CSM).md)**: Core execution engine that parses and runs CSM scripts, managing test state and results.
+  - **[UI (ExecutionView)](src/_docs/ExecutionView(CSM).md)**: User interface for script management, execution control, and result viewing.
+  - **[App](src/_docs/App.md)**: A sample application demonstrating how to use the CSMScript library.
 - **Example Projects** — Demonstrate how to combine CSMScript-Lite with other CSM modules for script-driven automated testing.
 
 ![CSMScriptApp](.github/CSMScript%20UI.png)

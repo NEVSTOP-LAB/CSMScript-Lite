@@ -9,9 +9,9 @@ CSMScript-Lite 是一款基于 [可通信状态机（CSM）](https://github.com/
 此项目包括：
 
 - **CSMScript-Lite Library** — 轻量级 CSM 脚本执行引擎，其本身也是一个基于 CSM 实现的模块。
-  - **[Engine](docs/Engine(CSM).md)**：核心执行引擎，负责解析并运行 CSM 脚本，管理测试状态与结果。
-  - **[UI（ExecutionView）](docs/ExecutionView(CSM).md)**：用户界面，提供脚本管理、执行控制和结果查看功能。
-  - **[App](docs/App.md)**：示例应用程序，展示如何使用 CSMScript 库执行脚本。
+  - **[Engine](src/_docs/Engine(CSM).md)**：核心执行引擎，负责解析并运行 CSM 脚本，管理测试状态与结果。
+  - **[UI（ExecutionView）](src/_docs/ExecutionView(CSM).md)**：用户界面，提供脚本管理、执行控制和结果查看功能。
+  - **[App](src/_docs/App.md)**：示例应用程序，展示如何使用 CSMScript 库执行脚本。
 - **实例工程** — 展示如何将 CSMScript-Lite 与其他 CSM 模块结合，实现脚本驱动的自动化测试。
 
 ![CSMScriptApp](.github/CSMScript%20UI.png)
