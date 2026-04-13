@@ -1,0 +1,31 @@
+AUTO_ERROR_HANDLE_ENABLE >> TRUE
+
+<setup>
+//setup
+
+Channels -@ ai
+
+<main>
+
+//ai/0
+wait >> 0.5s
+
+read >> ai/0;100 -@ ai
+read >> ai/0;2 -@ ai
+read >> ai/0;2 -@ ai
+read >> ai/0;2 -@ ai
+read(massdata) >> ai/0;100 -@ ai => waveform
+Action: Update Chart >> ${waveform} -@ Chart
+
+//ai/1
+wait(ms) >> 500ms
+
+read >> ai/1;2 -@ ai
+read >> ai/1;2 -@ ai
+read >> ai/1;2 -@ ai
+read >> ai/2;2 -@ ai
+read(massdata) >> ai/0;100 -@ ai => waveform
+Action: Update Chart >> ${waveform} -@ Chart
+
+<cleanup>
+wait >> 1s

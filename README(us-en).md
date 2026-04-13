@@ -14,7 +14,7 @@ This project includes:
   - **[App](src/_docs/App.md)**: A sample application demonstrating how to use the CSMScript library.
 - **Example Projects** — Demonstrate how to combine CSMScript-Lite with other CSM modules for script-driven automated testing.
 
-![CSMScriptApp](.github/CSMScript%20UI.png)
+![CSMScriptApp](.github/csmscript-lite.gif)
 
 ## Dependencies
 

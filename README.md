@@ -14,7 +14,7 @@ CSMScript-Lite 是一款基于 [可通信状态机（CSM）](https://github.com/
   - **[App](src/_docs/App.md)**：示例应用程序，展示如何使用 CSMScript 库执行脚本。
 - **实例工程** — 展示如何将 CSMScript-Lite 与其他 CSM 模块结合，实现脚本驱动的自动化测试。
 
-![CSMScriptApp](.github/CSMScript%20UI.png)
+![CSMScriptApp](.github/csmscript-lite.gif)
 
 ## 依赖
 
