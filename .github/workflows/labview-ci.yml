@@ -48,7 +48,7 @@ on:
 jobs:
   # 合并 Check_Broken_VIs / Build-VIPM-Library 为单个 job，
   # 保证所有步骤在同一台自托管 runner、同一工作区串行执行
-  CI:
+  LABVIEW-CI:
     # The type of runner that the job will run on
     runs-on: [self-hosted, lv2020]
     timeout-minutes: 120
