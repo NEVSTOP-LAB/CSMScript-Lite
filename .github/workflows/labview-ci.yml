@@ -1,6 +1,9 @@
-# This is a basic workflow to help you get started with Actions
+# LabVIEW CI 工作流：合并自 Check_Broken_VIs.yml 与 Build_VIPM_Library.yml
+# 两个阶段（Check_Broken_VIs / Build-VIPM-Library）合并为单个 job，
+# 保证所有步骤在同一台自托管 runner、同一工作区串行执行：
+# 先检查损坏的 VI（CheckBroken）→ 再构建 VIP（Build）→ 最后上传 Artifact 并备份 FTP
 
-name: Check_Broken_VIs
+name: labview-ci
 
 # 同一分支/标签的多次触发只保留最新一次运行：新 push 自动取消进行中的上一次运行，
 # 避免多次提交在自托管 runner 上重复构建、排队积压（与 usermanual-ci.yml 同款配置）
@@ -16,7 +19,6 @@ on:
       - '**.md'
       - '**.txt'
       - '**.drawio'
-      - '**.vipb'
       - '**.png'
       - '**.svg'
       - '**.json'
@@ -31,25 +33,30 @@ on:
       - '**.md'
       - '**.txt'
       - '**.drawio'
-      - '**.vipb'
       - '**.png'
       - '**.svg'
       - '**.json'
       - '**.yml'
       - 'SDK/**/*'
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  Check_Broken_VIs:
+  # 合并 Check_Broken_VIs / Build-VIPM-Library 为单个 job，
+  # 保证所有步骤在同一台自托管 runner、同一工作区串行执行
+  LABVIEW-CI:
     # The type of runner that the job will run on
     runs-on: [self-hosted, lv2020]
+    timeout-minutes: 120
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
+      # 安装依赖包（一次，供检查 / 构建共用）
       - uses: NEVSTOP-LAB/InstallNevstopPackage@main
         with:
           LabVIEW_Version: 2020
@@ -59,10 +66,9 @@ jobs:
           PackageName1: CSM-MassData-Parameter-Support
           PackageName2: CSM-API-String-Arguments-Support
           PackageName3: CSM-INI-Static-Variable-Support
-          PackageName4: NEVSTOP-Programming-Palette
 
-      # Runs a set of commands using the runners shell
-      - id: Check_Broken_VIs
+      # 1. 检查仓库中是否有损坏的 VI
+      - id: check-broken-vis
         uses: LV-APT/lvCICD@main
         with:
           LabVIEW_Version: 2020
@@ -71,3 +77,38 @@ jobs:
           Parameter2: NOPASSWORD
           Parameter3: YES
           Parameter4: -placeContent
+
+      # 2. 构建 VIPM Library：依据仓库根目录的 CSMScript-Lite.vipb 打包为 .vip
+      # 产物输出到 $GITHUB_WORKSPACE/vip/（即本地 ./vip/）
+      - name: BuildDailyVIP
+        id: build-vip
+        uses: NEVSTOP-LAB/vipm-BuildViPackage@main
+        with:
+          LabVIEW_Version: 2020
+          VipbPath: ${{ github.workspace }}
+
+      # 获取 CI_REPOSITORY_OWNER_SLUG / CI_REPOSITORY_NAME / CI_ACTION_REF_NAME（FTP 备份目录用）
+      - uses: FranzDiebold/github-env-vars-action@v2.8.0
+
+      # 3. 上传构建产物（.vip）为 Artifact
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          # Artifact name
+          name: ${{ steps.build-vip.outputs.vipName }}
+          path: ${{ steps.build-vip.outputs.vipPathName }}
+          # The desired behavior if no files are found using the provided path.
+          if-no-files-found: warn
+          retention-days: 90
+
+      # 4. 备份构建产物到 FTP：/{org}/{repo}/{branch|tag}/
+      - name: backup Build Artifact by ftp
+        uses: dennisameling/ftp-upload-action@v1.0.9
+        with:
+          server: ${{ secrets.VIPM_FTP_IP }}
+          port: ${{ secrets.VIPM_FTP_PORT }}
+          username: ${{ secrets.VIPM_FTP_USER }}
+          password: ${{ secrets.VIPM_FTP_PASSWORD }}
+          secure: false
+          server_dir: /${{ env.CI_REPOSITORY_OWNER_SLUG }}/${{ env.CI_REPOSITORY_NAME }}/${{ env.CI_ACTION_REF_NAME }}/
+          local_dir: ./vip/
