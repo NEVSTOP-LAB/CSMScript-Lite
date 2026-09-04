@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2026-09-04 13:14:50" Creator="liyao" Comments="" ID="621d68d7af315a3d5d91a8d63b21a539">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2026-09-04 13:35:35" Creator="liyao" Comments="" ID="69a4af27ea37f528ae9e02084314d5dc">
   <Library_General_Settings>
     <Package_File_Name>NEVSTOP_lib_CSMScript_Lite</Package_File_Name>
     <Library_Version>2026.1.0.8</Library_Version>
@@ -39,11 +39,11 @@
 
 This project includes:
 
-&lt;b&gt;CSMScript-Lite Library&lt;/b&gt; ¡ª A lightweight CSM script execution engine, itself implemented as a CSM module.
+&lt;b&gt;CSMScript-Lite Library&lt;/b&gt; - A lightweight CSM script execution engine, itself implemented as a CSM module.
     - Engine: Core execution engine that parses and runs CSM scripts, managing test state and results.
     - UI (ExecutionView): User interface for script management, execution control, and result viewing.
     - App: A sample application demonstrating how to use the CSMScript library.
-&lt;b&gt;Example Projects&lt;/b&gt; ¡ª Demonstrate how to combine CSMScript-Lite with other CSM modules for script-driven automated testing.</Description>
+&lt;b&gt;Example Projects&lt;/b&gt; - Demonstrate how to combine CSMScript-Lite with other CSM modules for script-driven automated testing.</Description>
       <Copyright/>
       <Packager>NEVSTOP</Packager>
       <URL>https://github.com/NEVSTOP-LAB/CSMScript-Lite</URL>
